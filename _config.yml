@@ -14,6 +14,9 @@ exclude:
   - README.md
   - desktop.ini
 
+gems:
+  - jekyll-coffeescript
+
 collections:
   sections:
     output: false

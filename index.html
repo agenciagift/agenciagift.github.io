@@ -4,9 +4,6 @@ layout: default
 
 {% for section in site.sections %}
 <section class="page-content section-{{ section.section-id }}" id="{{ section.section-id }}">
-  <div class="wrapper post-header">
-    <h2>{{ section.section-title }}</h2>
-  </div>
   {{ section.content }}
 </section>
 {% endfor %}

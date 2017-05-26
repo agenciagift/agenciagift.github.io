@@ -3,30 +3,20 @@ section-id: hero
 section-title: Início
 ---
 
-<div data-grid="" class="wrapper">
-    <div data-cell="1of2" class="hero dark">
-        <p>Hero dark</p>
-    </div>
-    <div data-cell="1of2" class="hero">
-        <p>Hero</p>
-    </div>
-    <div data-cell="1of2" class="hero light">
-        <p>Hero light</p>
-    </div>
-    <div data-cell="1of2" class="hero extra-light">
-        <p>Extra light</p>
-    </div>
-    <div data-cell="1of2" class="hero grey-dark">
-        <p>Grey dark</p>
-    </div>
-    <div data-cell="1of2" class="hero grey">
-        <p>Grey</p>
-    </div>
-    <div data-cell="1of2" class="hero grey-light">
-        <p>Grey light</p>
+<div data-grid="center" class="hero-content">
+    <div class="wrapper">
+        <h1>Dizeres de boas vindas, etc</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti!</p>
+        <p><a href="#teste" data-btn="">Call-to-action</a></p>
     </div>
 </div>
 
-<div class="wrapper">
-    <p><a href="https://color.adobe.com/pt/Esmeralda-Deep-color-theme-9368909/edit/?copy=true" target="_blank">Ver a paleta de cores no Adobe Color...</a></p>
-</div>
+<div class="video-frame">{% comment %} https://vimeo.com/153959792 {% endcomment %}</div>
+
+<script>
+    window.addEventListener( 'load', function(){
+        if (_viewport.width() > 600) {
+            $('.video-frame')[0].innerHTML = '<iframe src="https://player.vimeo.com/video/153959792?autoplay=1&loop=1&color=ffffff&title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
+        }
+    } );
+</script>
