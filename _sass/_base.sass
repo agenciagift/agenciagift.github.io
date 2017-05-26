@@ -46,6 +46,7 @@ h1, h2, h3, h4, h5, h6
 a 
     color: $brand-color
     text-decoration: none
+    @extend %ui-transition
 
     &:hover 
         color: $green-dark
@@ -113,15 +114,25 @@ pre
 
 .hero
     padding: $spacing-unit / 2
-    background-color: $green
+    background-color: $green-dark
     color: #fff
-    &.dark
-        background-color: $green-dark
+    a:not([data-btn])
+        color: $green-light
+        &:hover, &:focus
+            color: $green-compl
     &.light
         background-color: $green-light
+        a:not([data-btn])
+            color: $green-dark
+            &:hover, &:focus
+                color: $green-compl
     &.extra-light
         background-color: $green-paper
         color: $text-color
+        a:not([data-btn])
+            color: $grey-color
+            &:hover, &:focus
+                color: #000
     &.grey
         background-color: $grey-color
     &.grey-dark
@@ -129,3 +140,29 @@ pre
     &.grey-light
         background-color: $grey-color-light
         color: $text-color
+        a:not([data-btn])
+            color: $grey-color
+            &:hover, &:focus
+                color: #000
+
++module(btn)
+    display: inline-block
+    padding: 5px 15px
+    border-radius: 500px
+    background-color: $brand-color
+    color: #fff
+    &:not(:first-child)
+        margin-left: 2em
+    &:hover, &:focus
+        color: #fff
+        text-decoration: none
+        box-shadow: 0 -1px 0 0 $green-light, 0 3px 10px 0 #000
+
+.video-frame
+    position: relative
+    height: 0
+    padding-bottom: 56%
+    iframe, object, embed, > *
+        position: absolute
+        width: 100%
+        height: 100%
