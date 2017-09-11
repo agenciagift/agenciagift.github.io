@@ -1,10 +1,8 @@
-title: GiFT desenvolvimento web
+title: GFT web
 description: > 
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Desenvolvimento e gerenciamento de sistemas web. Aplicativos, e-commerce, CMS, ERP, websites e blogs. Entre em contato e faça um orçamento.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://gft.com.br"
+url: "http://agenciagft.com"
 
 # Build settings
 markdown: kramdown
@@ -14,7 +12,7 @@ exclude:
   - README.md
   - desktop.ini
 
-gems:
+plugins:
   - jekyll-coffeescript
 
 collections:
