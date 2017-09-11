@@ -5,18 +5,17 @@ section-title: Início
 
 <div data-grid="center" class="hero-content">
     <div class="wrapper">
-        <h1>Dizeres de boas vindas, etc</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti!</p>
-        <p><a href="#teste" data-btn="">Call-to-action</a></p>
+        <h2>Desenvolvimento web</h2>
+        <p>Sistemas para gerenciamento de conteúdo, ativos da empresa, sites de conteúdo dinâmico e e-commerce.</p>
+        <p><a href="#contato" data-btn="">Comece agora</a></p>
     </div>
 </div>
 
-<div class="video-frame">{% comment %} https://vimeo.com/153959792 {% endcomment %}</div>
-
-<script>
-    window.addEventListener( 'load', function(){
-        if (_viewport.width() > 600) {
-            $('.video-frame')[0].innerHTML = '<iframe src="https://player.vimeo.com/video/153959792?autoplay=1&loop=1&color=ffffff&title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
-        }
-    } );
-</script>
+<div class="video-frame">
+    <video id="top-video-background" src="{{ site.baseurl }}/midia/meeting.mp4" autoplay loop muted playsinline></video>
+    <script>
+        window.addEventListener('load', function(){
+            document.getElementById('top-video-background').play();
+        });
+    </script>
+</div>
