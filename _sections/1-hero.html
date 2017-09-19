@@ -4,18 +4,33 @@ section-title: Início
 ---
 
 <div data-grid="center" class="hero-content">
-    <div class="wrapper">
-        <h2>Desenvolvimento web</h2>
-        <p>Sistemas para gerenciamento de conteúdo, ativos da empresa, sites de conteúdo dinâmico e e-commerce.</p>
-        <p><a href="#contato" data-btn="">Comece agora</a></p>
+    <div class="wrapper hero-parallax-container">
+        <h2 class="hero-title">Desenvolvimento web</h2>
+        <p class="hero-excerpt">Sistemas de gerenciamento, sites de conteúdo dinâmico e e-commerce.</p>
+        <p class="hero-cta"><a href="#contato" data-btn="">Comece agora</a></p>
     </div>
 </div>
 
 <div class="video-frame">
     <video id="top-video-background" src="{{ site.baseurl }}/midia/meeting.mp4" autoplay loop muted playsinline></video>
     <script>
-        window.addEventListener('load', function(){
-            document.getElementById('top-video-background').play();
-        });
+        (function(){
+            var topVideoBackground = document.getElementById('top-video-background');
+            var heroParallaxContainer = document.querySelector('.hero-parallax-container');
+            var heroHeight = document.querySelector('.section-hero').offsetHeight;
+            topVideoBackground.setAttribute('hidden', true);
+            heroParallaxContainer.setAttribute('hidden', true);
+            window.addEventListener('load', function(){
+                topVideoBackground.removeAttribute('hidden');
+                heroParallaxContainer.removeAttribute('hidden');
+                topVideoBackground.play();
+            });
+            window.addEventListener('scroll', function(){
+                if (scrollY < heroHeight + heroParallaxContainer.offsetHeight){
+                    heroParallaxContainer.style.transform = 'translateY('+ scrollY / 2 +'px)';
+                    topVideoBackground.style.transform = 'translateY('+ scrollY / 3 +'px)';
+                }
+            });
+        })()
     </script>
 </div>

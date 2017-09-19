@@ -41,7 +41,9 @@ li
         margin-bottom: 0
 
 h1, h2, h3, h4, h5, h6 
-    font-weight: $base-font-weight
+    font:
+        family: $title-font-family
+        weight: $base-font-weight
 
 a 
     color: $brand-color
@@ -147,9 +149,12 @@ pre
 
 +module(btn)
     display: inline-block
-    padding: 5px 15px
+    padding: 5px 20px
     border-radius: 500px
     background-color: $brand-color
+    font-family: $ui-font-family
+    text-transform: uppercase
+    letter-spacing: 1px
     color: #fff
     &:not(:first-child)
         margin-left: 2em

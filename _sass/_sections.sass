@@ -8,17 +8,42 @@
         padding-bottom: 20%
         .hero-content
             height: 100%
+        .hero-title,
+        .hero-excerpt
+            text-shadow: 0 1px 1px #fff, 0 -1px 1px #fff
+        .hero-title,
+        .hero-excerpt,
+        .hero-cta
+            animation: getup .5s ease-in-out forwards
+        .hero-excerpt
+            animation-duration: .7s
+        .hero-cta
+            animation-duration: 1.3s
         .video-frame
             position: absolute
             top: 0
             left: 0
             right: 0
             z-index: -1
+            animation: appear 3s ease-in-out forwards
             +media-query($on-palm)
                 display: none
+    @keyframes getup
+        from
+            opacity: 0
+            transform: translateY(100%)
+        to
+            opacity: 1
+            transform: translateY(0)
+    @keyframes appear
+        from
+            opacity: 0
+        to
+            opacity: 1
 
     &services
-
+        //
     &gallery
-
+        //
     &about
+        //
