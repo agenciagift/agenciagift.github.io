@@ -8,6 +8,8 @@
         padding-bottom: 20%
         .hero-content
             height: 100%
+            +media-query($on-palm)
+                margin-top: 200px
         .hero-title,
         .hero-excerpt
             text-shadow: 0 1px 1px #fff, 0 -1px 1px #fff
@@ -27,7 +29,7 @@
             z-index: -1
             animation: appear 3s ease-in-out forwards
             +media-query($on-palm)
-                display: none
+                margin-top: $spacing-unit * 2
     @keyframes getup
         from
             opacity: 0
