@@ -14,8 +14,8 @@ defaults:
     type: page
   values:
     layout: page
-    permalink: ""
-    menu-title: ""
+    permalink: ''
+    menu-title: ''
 - scope:
     path: ''
     type: posts
