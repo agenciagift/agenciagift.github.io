@@ -1,6 +1,6 @@
 ---
 title: Sobre nós
-permalink: "/info/"
+permalink: "/sobre-a-gft/"
 layout: page
 menu-title: Sobre
 ---
