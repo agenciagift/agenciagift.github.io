@@ -11,6 +11,13 @@ collections:
 defaults:
 - scope:
     path: ''
+    type: page
+  values:
+    layout: page
+    permalink: ""
+    menu-title: ""
+- scope:
+    path: ''
     type: posts
   values:
     layout: post
