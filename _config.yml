@@ -1,6 +1,6 @@
 ---
 title: GFT web
-timezone: UTC
+timezone: America/Sao_Paulo
 collections:
   posts:
     title: Posts
@@ -18,13 +18,13 @@ defaults:
   values:
     layout: post
 description: 'Desenvolvimento e gerenciamento de sistemas web. Aplicativos, e-commerce,
-  CMS, ERP, websites e blogs. Entre em contato e faça um orçamento.'
-baseurl: ''
+  CMS, ERP, websites e blogs. Entre em contato e faça um orçamento.
+
+'
+baseurl: 
 url: http://agenciagft.com
 markdown: kramdown
 exclude:
 - gulpfile.js
 - README.md
 - desktop.ini
-gems:
-- jekyll-coffeescript
