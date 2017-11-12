@@ -1,28 +1,32 @@
+---
 title: GFT web
-description: > 
-  Desenvolvimento e gerenciamento de sistemas web. Aplicativos, e-commerce, CMS, ERP, websites e blogs. Entre em contato e faça um orçamento.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://agenciagft.com"
-
-# Build settings
-markdown: kramdown
-
-exclude:
-  - gulpfile.js
-  - README.md
-  - desktop.ini
-
-plugins:
-  - jekyll-coffeescript
-
+timezone: UTC
 collections:
+  posts:
+    title: Posts
+    output: true
   sections:
+    title: Sections
     output: false
-
+  uploads:
+    title: Uploads
+    output: true
 defaults:
-  -
-    scope:
-      path: ""
-      type: posts
-    values:
-      layout: "post"
+- scope:
+    path: ''
+    type: posts
+  values:
+    layout: post
+description: 'Desenvolvimento e gerenciamento de sistemas web. Aplicativos, e-commerce,
+  CMS, ERP, websites e blogs. Entre em contato e faça um orçamento.
+
+'
+baseurl: ''
+url: http://agenciagft.com
+markdown: kramdown
+exclude:
+- gulpfile.js
+- README.md
+- desktop.ini
+plugins:
+- jekyll-coffeescript
