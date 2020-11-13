@@ -19,12 +19,10 @@ defaults:
     type: posts
   values:
     layout: post
-description: 'Desenvolvimento e gerenciamento de sistemas web. Aplicativos, e-commerce,
-  CMS, ERP, websites e blogs. Entre em contato e faça um orçamento.
-
+description: 'Descrição pendente
 '
 baseurl: 
-url: http://agenciagft.com
+url: http://agenciagft.github.io
 markdown: kramdown
 exclude:
 - gulpfile.js
