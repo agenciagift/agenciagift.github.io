@@ -19,8 +19,7 @@ defaults:
     type: posts
   values:
     layout: post
-description: 'Descrição pendente
-'
+description: 'Descrição pendente '
 baseurl: 
 url: http://agenciagft.github.io
 markdown: kramdown
