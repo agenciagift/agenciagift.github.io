@@ -2,11 +2,6 @@
 title: GFT web
 timezone: America/Sao_Paulo
 collections:
-  bookmarks:
-    title: Bookmarks
-    output: false
-    screnshots_img:
-    - 
   posts:
     title: Posts
     output: true
