@@ -4,7 +4,9 @@ timezone: America/Sao_Paulo
 collections:
   bookmarks:
     title: Bookmarks
-    output: true
+    output: false
+    screnshots_img:
+    - 
   posts:
     title: Posts
     output: true
