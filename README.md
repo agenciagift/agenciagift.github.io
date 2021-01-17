@@ -1,2 +1,1 @@
-# gftweb.github.io
-Agência de desenvolvedores freelancers
+Comunidade de desenvolvedores
