@@ -1,5 +1,5 @@
 ---
-title: GFT web
+title: Agência Gift - Comunidade de desenvolvedores
 timezone: America/Sao_Paulo
 collections:
   posts:
@@ -19,8 +19,12 @@ defaults:
     type: posts
   values:
     layout: post
-description: 'Descrição pendente '
-baseurl: 
+description: >
+  Compartilhe conteúdos úteis na área de tecnologia. 
+  Informe sugestões de projetos.
+  Monte seu time de hackathon.
+  Compartilhe vagas.
+baseurl: ''
 url: http://agenciagft.github.io
 markdown: kramdown
 exclude:
