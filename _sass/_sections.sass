@@ -6,21 +6,37 @@
         position: relative
         padding-top: 20%
         padding-bottom: 20%
+
         .hero-content
             height: 100%
             +media-query($on-palm)
                 margin-top: 200px
+
         .hero-title,
         .hero-excerpt
             text-shadow: 0 1px 1px #fff, 0 -1px 1px #fff
+
         .hero-title,
         .hero-excerpt,
         .hero-cta
             animation: getup .5s ease-in-out forwards
+
+            &__btn
+                display: inline-block
+                opacity: .5
+
+                &:hover, &:focus, &:active
+                    opacity: 1
+
+                svg
+                    display: block
+
         .hero-excerpt
             animation-duration: .7s
+
         .hero-cta
             animation-duration: 1.3s
+
         .video-frame
             position: absolute
             top: 0
@@ -30,6 +46,7 @@
             animation: appear 3s ease-in-out forwards
             +media-query($on-palm)
                 margin-top: $spacing-unit * 2
+
     @keyframes getup
         from
             opacity: 0
@@ -37,6 +54,7 @@
         to
             opacity: 1
             transform: translateY(0)
+
     @keyframes appear
         from
             opacity: 0
@@ -45,7 +63,9 @@
 
     &services
         //
+
     &gallery
         //
+
     &about
         //
