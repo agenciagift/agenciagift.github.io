@@ -125,49 +125,9 @@ pre
     padding: $spacing-unit / 2
     background-color: $green-dark
     color: #fff
-    a:not([data-btn])
-        color: $green-light
-        &:hover, &:focus
-            color: $green-compl
-    &.light
-        background-color: $green-light
-        a:not([data-btn])
-            color: $green-dark
-            &:hover, &:focus
-                color: $green-compl
-    &.extra-light
-        background-color: $green-paper
-        color: $text-color
-        a:not([data-btn])
-            color: $grey-color
-            &:hover, &:focus
-                color: #000
-    &.grey
-        background-color: $grey-color
-    &.grey-dark
-        background-color: $grey-color-dark
-    &.grey-light
-        background-color: $grey-color-light
-        color: $text-color
-        a:not([data-btn])
-            color: $grey-color
-            &:hover, &:focus
-                color: #000
 
-+module(btn)
-    display: inline-block
-    padding: 5px 20px
-    border-radius: 500px
-    background-color: $brand-color
-    font-family: $ui-font-family
-    text-transform: uppercase
-    letter-spacing: 1px
-    color: #fff
-
-    &:hover, &:focus
-        color: #fff
-        text-decoration: none
-        box-shadow: 0 -1px 0 0 $green-light, 0 3px 10px 0 #000
+.btn
+    @extend button
 
 .video-frame
     position: relative

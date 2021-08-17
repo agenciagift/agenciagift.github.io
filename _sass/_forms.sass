@@ -86,14 +86,20 @@ textarea
 
 button
     @extend %form-basis
-    padding-left: 2em
-    padding-right: 2em
-    text-transform: uppercase
-    background-color: transparent
-    border: 1px solid $brand-color
+
+    display: inline-block
+    padding: 5px 20px
+    border: 0 none
     border-radius: 500px
-    color: $brand-color
+    background-color: $brand-color
+
     line-height: 1.5
+    font-family: $ui-font-family
+    text-transform: uppercase
+    letter-spacing: 1px
+    color: #fff
+
     &:hover, &:focus
-        background-color: $brand-color
         color: #fff
+        text-decoration: none
+        box-shadow: 0 -1px 0 0 $green-light, 0 3px 10px 0 #000
