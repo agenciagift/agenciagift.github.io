@@ -19,11 +19,10 @@ defaults:
     type: posts
   values:
     layout: post
-description: >
-  Compartilhe conteúdos úteis na área de tecnologia. 
-  Informe sugestões de projetos.
-  Monte seu time de hackathon.
-  Compartilhe vagas.
+description: 'Compartilhe conteúdos úteis na área de tecnologia.  Informe sugestões
+  de projetos. Monte seu time de hackathon. Compartilhe vagas.
+
+'
 baseurl: ''
 url: http://agenciagft.github.io
 markdown: kramdown
