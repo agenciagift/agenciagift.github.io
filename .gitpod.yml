@@ -1,2 +1,4 @@
+
 tasks:
-  - init: bundle install
+  - before: bundle install
+    command: bundle exec jekyll serve watch
