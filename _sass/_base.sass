@@ -24,7 +24,11 @@ body
     text-shadow: none
     background: #00ced1
 
-h1, h2, h3, h4, h5, h6, p, blockquote, pre, ul, ol, dl, figure, %vertical-rhythm 
+h1, h2, h3, h4, h5, h6 
+    margin-top: $spacing-unit
+    margin-bottom: $spacing-unit
+
+p, blockquote, pre, ul, ol, dl, figure, %vertical-rhythm 
     margin-top: $spacing-unit / 2
     margin-bottom: $spacing-unit / 2
 
@@ -38,6 +42,11 @@ figure > img
 
 figcaption 
     font-size: $small-font-size
+
+dl
+    display: grid
+    grid-template-columns: min-content 1fr
+    grid-gap: $spacing-unit / 2
 
 ul, ol 
     margin-left: $spacing-unit
@@ -110,12 +119,12 @@ pre
         clear: both
 
 .icon 
+    display: inline-block
+    vertical-align: middle
 
-    > svg 
-        display: inline-block
-        width: 16px
-        height: 16px
-        vertical-align: middle
+    > svg
+        width: 1em
+        height: 1em
         color: inherit
 
         path 

@@ -1,18 +1,105 @@
 ---
 layout: default
-sections:
-- title: Home
-  name: hero
-- title: Quem somos
-  name: about
 ---
 
-{% for section in page.sections %}
+<section class="page-content section-hero" id="hero">
+  <div data-grid="center" class="hero-content">
+    <div class="wrapper hero-parallax-container">
+      <h2 class="hero-title">Comunidade de desenvolvedores</h2>
+      <p class="hero-excerpt">Eventos, vagas e mentoria voluntária em TI.</p>
+      <p class="hero-social">
+        <a href="https://github.com/agenciagift" class="hero-cta__btn" target="_blank">
+          {% include svg/github.svg %}
+        </a>
+        <a href="https://www.youtube.com/channel/UC91yWDFDN74PiYI-xbmE8IA" class="hero-cta__btn" target="_blank">
+          {% include svg/youtube.svg %}
+        </a>
+        <a href="https://discord.gg/atTj83sd" class="hero-cta__btn" target="_blank">
+          {% include svg/discord.svg %}
+        </a>
+        <a href="#whatsapp" class="hero-cta__btn">
+          {% include svg/whatsapp.svg %}
+        </a>
+      </p>
+    </div>
+  </div>
 
-<section class="page-content section-{{ section.name }}" id="{{ section.name }}">
-
-  {% include sections/{{ section.name }}.html %}
-
+  <div class="video-frame">
+    <video id="top-video-background" src="{{ site.baseurl }}/midia/meeting.mp4" autoplay loop muted playsinline></video>
+    <script>
+      (function () {
+        var topVideoBackground = document.getElementById('top-video-background');
+        var heroParallaxContainer = document.querySelector('.hero-parallax-container');
+        var heroHeight = document.querySelector('.section-hero').offsetHeight;
+        topVideoBackground.setAttribute('hidden', true);
+        heroParallaxContainer.setAttribute('hidden', true);
+        window.addEventListener('load', function () {
+          topVideoBackground.removeAttribute('hidden');
+          heroParallaxContainer.removeAttribute('hidden');
+          topVideoBackground.play();
+        });
+        window.addEventListener('scroll', function () {
+          if (scrollY < heroHeight + heroParallaxContainer.offsetHeight) {
+            heroParallaxContainer.style.transform = 'translateY(' + scrollY / 2 + 'px)';
+            topVideoBackground.style.transform = 'translateY(' + scrollY / 3 + 'px)';
+          }
+        });
+      })()
+    </script>
+  </div>
 </section>
 
-{% endfor %}
+<section class="page-content section-about" id="about">
+  <div class="wrapper">
+    <h2>Sobre nós</h2>
+    <ul>
+      <li>compartilhe conteúdos úteis na área de tecnologia</li>
+      <li>informe sugestões de projetos</li>
+      <li>monte seu time de hackathon</li>
+      <li>compartilhe vagas</li>
+      <li>entre de graça</li>
+      <li>saia quando quiser</li>
+    </ul>
+  </div>
+</section>
+
+<section class="page-content section-rules" id="whatsapp">
+  <div class="wrapper">
+    <h2>Regras do grupo</h2>
+    <dl>
+      <dt>#1</dt>
+      <dd>Só entram pessoas brilhantes.</dd>
+      <dt>#2</dt>
+      <dd><del>Não tem regras. É só uma piada.</del></dd>
+      <dt>#13</dt>
+      <dd>Gostamos de oferecer um ambiente acolhedor. Mas se alguma mensagem discriminatória for percebida, todos são
+        convidados a se manifestar explicitamente contra. Sem tolerância com misoginia, machismo, homofobia ou qualquer
+        tipo de discriminação.</dd>
+      <dt>#38</dt>
+      <dd>Ao entrar, o participante deve apresentar-se.</dd>
+      <dt>#65</dt>
+      <dd>Todos devem obrigatoriamente compartilhar conhecimento.</dd>
+      <dt>#66</dt>
+      <dd>A regra #65 só se aplica aos que quiserem compartilhar.</dd>
+      <dt>#79</dt>
+      <dd>Ao deixar o grupo, o participante tem até 48 horas para devolver o cartão de crédito corporativo.</dd>
+      <dt>#108</dt>
+      <dd>O participante, após deixar o grupo, só poderá retornar se quiser.</dd>
+    </dl>
+    <p>
+      <a href="https://chat.whatsapp.com/CSnCKKPRST3JfY695TsSGL" class="btn" target="_blank">
+        <span class="icon">{% include svg/whatsapp.svg %} </span>
+        Entrar no grupo do WhatsApp
+      </a>
+    </p>
+
+    <h3>Sugestões de como se apresentar:</h3>
+    <ul>
+      <li>nome, idade, profissão, onde mora ou trabalha</li>
+      <li>como soube da comunidade</li>
+      <li>o que está buscando aqui, expectativas profissionais</li>
+      <li>convide a galera pra participar de alguma coisa interessante (um projeto seu, um curso gratuito, #vagas na sua
+        empresa)</li>
+    </ul>
+  </div>
+</section>
