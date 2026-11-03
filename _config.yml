@@ -24,7 +24,7 @@ description: 'Compartilhe conteúdos úteis na área de tecnologia.  Informe sug
 
 '
 baseurl: ''
-url: http://agenciagft.github.io
+url: https://agenciagift.github.io
 markdown: kramdown
 exclude:
 - gulpfile.js
