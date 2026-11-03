@@ -15,7 +15,7 @@ Site estático **Jekyll** publicado no GitHub Pages (domínio agenciagift.github
 - Comunidade de desenvolvedores; foco atual em renda emergencial (ver `~/.claude/plans/comunidade-gift.md`). Discord foi removido do site.
 
 ## Regras
-1. **Não publicar sem OK explícito do João:** `git push`, merge e deploy dependem de aprovação por mensagem. Trabalhe em branch, faça commits locais e mostre o `git diff`.
+1. **Commit e push direto na branch padrão, sem pedir OK** (autorizado pelo João; vale a regra global em `~/.claude/CLAUDE.md`). Se o build do Pages falhar ou houver regressão, corrija ou reverta na hora.
 2. **Nunca inventar fato** (serviços, preços, endereços, números, depoimentos): o conteúdo vem do cliente; se faltar dado, pergunte.
 3. **Sem dado sensível no repositório:** senhas, chaves, CPF/RG, dados pessoais de clientes ou usuários.
 4. Mudança mínima e reversível; confirmar antes de apagar páginas, mudar `CNAME` ou domínio.
