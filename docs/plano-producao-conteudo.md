@@ -37,6 +37,7 @@ Responder ao que a comunidade pede: **onde e o que estudar, carreira, e um lugar
 | Publicar, legendar, cortes e agendar | 1 h |
 | Vagas e enquete | 0,5 h |
 | Planejar a semana seguinte e revisar métricas | 0,5 h |
+
 Se faltar tempo, corta-se o vídeo curto, nunca a caixa de perguntas: é o que alimenta o resto.
 
 ## Pipeline (do tema ao ar)
@@ -66,6 +67,7 @@ Estrutura do texto: a pergunta como o iniciante faria; resposta em 1 parágrafo;
 | 2 | o que é Git e por que usar | publicar vídeo 1 | primeira enquete; 1ª mentoria aberta gravada |
 | 3 | front-end, back-end e full stack | vídeo 2 | trilha "primeiro emprego" (versão 1) |
 | 4 | como ler uma mensagem de erro | vídeo 3 | balanço do mês e pesquisa curta |
+
 Os próximos 10 temas estão no backlog do `roteiros-de-video`.
 
 ## Papéis (rodízio de voluntários)
