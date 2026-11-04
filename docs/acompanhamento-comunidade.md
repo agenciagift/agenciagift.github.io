@@ -5,7 +5,7 @@ Protocolo e registro do acompanhamento feito pelo Claude, com autorização do J
 ## Contexto
 - Pesquisa rápida enviada ao grupo principal em 04/11 às 10:39. Link e texto: `mensagens-fixadas.md`, seção 4. Formulário com aviso de respostas por e-mail ligado.
 - Dois grupos: o **principal** ("🎁 Agência Gift", dentro da comunidade, com conversa de membros) e o de **avisos** ("Agência Gift 🎁", só admins enviam; pouco uso, últimas atividades são saídas de membros).
-- Toda mensagem do Claude começa com "Claude aqui: " (ou, nos avisos curtos, segue o texto pronto da seção 4).
+- **Interações espontâneas** do Claude (respostas, comentários, perguntas fora de texto aprovado) começam com "Claude aqui: ". **Mensagens aprovadas** (avisos, enquetes e textos prontos liberados pelo João, como os de `mensagens-fixadas.md`) saem como estão, sem o prefixo (correção do João em 04/11).
 
 ## Checagem (adaptativa)
 - **Intervalo:** com movimento novo, 15 a 20 min; sem movimento, 30, 45, 60 e no máximo 90 min. Para às 18:00 do dia, quando o João pedir ou se aparecer algo estranho (depois de avisar o João).
@@ -36,7 +36,7 @@ Uma linha por checagem: hora, respostas da pesquisa, mensagens e reações novas
 | 04/11 ~13:50 | 0 (sem e-mail de aviso) | principal: 0 mensagens de membros desde 10:39, 1 reação ❤️ no aviso da pesquisa; avisos: aviso curto enviado 13:08, 1 saída depois (13:25) | nenhum |
 
 ## Ações já feitas
-- 04/11 14:15: enquete 1 de inglês (nível) no grupo principal. Saiu **sem o prefixo "Claude aqui: "** exigido acima; nas próximas, usar o prefixo na pergunta. 0 votos às ~14:30.
+- 04/11 14:15: enquete 1 de inglês (nível) no grupo principal. Texto aprovado, sem o prefixo "Claude aqui: " (correto pela regra acima). 0 votos às ~14:30.
 - 04/11 10:39: aviso da pesquisa no grupo principal.
 - 04/11 13:08: aviso curto da pesquisa enviado no grupo de avisos (liberado pelo João no chat após bloqueio inicial do envio automático).
 - Pendente: apresentação no grupo principal. Condição cumprida às 13:50 (3 h sem mensagem de membro), mas **não enviada**: aguardando OK explícito do João no chat.
