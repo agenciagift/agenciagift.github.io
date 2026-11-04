@@ -5,9 +5,9 @@ lang: pt-BR
 baseurl: ''
 url: https://agenciagift.github.io
 markdown: kramdown
-youtube_url: https://www.youtube.com/channel/UC91yWDFDN74PiYI-xbmE8IA
+youtube_url: https://www.youtube.com/@agenciagift
 whatsapp_url: https://chat.whatsapp.com/CSnCKKPRST3JfY695TsSGL
-github_username: agenciagift
+github_url: https://github.com/agenciagift
 collections:
   posts:
     title: Posts

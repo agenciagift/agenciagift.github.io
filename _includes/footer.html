@@ -13,14 +13,15 @@
       </div>
 
       <ul class="seamless" data-cell="shrink fill">
-        {% if site.github_username %}
-        <li>
-          {% include icon-github.html username=site.github_username %}
-        </li>
+        {% if site.github_url %}
+        <li>{% include social-link.html icon="svg/github.svg" url=site.github_url label="GitHub" %}</li>
         {% endif %}
-
-        <li><a href="{{ site.youtube_url }}" target="_blank" rel="noopener">YouTube</a></li>
-        <li><a href="{{ site.whatsapp_url }}" target="_blank" rel="noopener">WhatsApp</a></li>
+        {% if site.youtube_url %}
+        <li>{% include social-link.html icon="svg/youtube.svg" url=site.youtube_url label="YouTube" %}</li>
+        {% endif %}
+        {% if site.whatsapp_url %}
+        <li>{% include social-link.html icon="svg/whatsapp.svg" url=site.whatsapp_url label="WhatsApp" %}</li>
+        {% endif %}
       </ul>
 
     </div>
