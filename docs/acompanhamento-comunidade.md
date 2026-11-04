@@ -34,6 +34,7 @@ Uma linha por checagem: hora, respostas da pesquisa, mensagens e reações novas
 | 04/11 10:39 | 0 | aviso da pesquisa enviado no grupo principal | |
 | 04/11 ~13:05 | 0 (sem e-mail de aviso no Gmail) | principal: nenhuma mensagem de membro nem reação visível desde 10:39; avisos: sem novidade (só saídas) | nenhum |
 | 04/11 ~13:50 | 0 (sem e-mail de aviso) | principal: 0 mensagens de membros desde 10:39, 1 reação ❤️ no aviso da pesquisa; avisos: aviso curto enviado 13:08, 1 saída depois (13:25) | nenhum |
+| 04/11 ~16:30 | não conferido | principal: 102 membros; enquete 1 de inglês com 6 votos (4 B2, 1 B1, 1 avançado, 0 iniciante); 2 reações no aviso da pesquisa | nível de inglês: maioria B2, trava na fala |
 
 ## Ações já feitas
 - 04/11 14:15: enquete 1 de inglês (nível) no grupo principal. Texto aprovado, sem o prefixo "Claude aqui: " (correto pela regra acima). 0 votos às ~14:30.
