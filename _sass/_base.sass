@@ -132,6 +132,27 @@ pre
         width: 20px
         height: 20px
 
+.content-list
+    display: grid
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr))
+    gap: $spacing-unit
+    margin-bottom: $spacing-unit
+
+.content-card
+    img
+        display: block
+        width: 100%
+        aspect-ratio: 16 / 9
+        object-fit: cover
+        border-radius: 5px
+    h3
+        margin: 5px 0
+        font-size: 1.1em
+        line-height: 1.2
+    p
+        margin: 0
+        font-size: $small-font-size * 1.2
+
 +module(label)
     display: inline-block
     vertical-align: text-bottom
