@@ -4,4 +4,4 @@
     url   — URL completa (definida no _config.yml)
     label — texto do link
 {%- endcomment -%}
-<a href="{{ include.url }}" target="_blank" rel="noopener"><span class="icon">{% include {{ include.icon }} %}</span> <span class="label-text">{{ include.label }}</span></a>
+<a class="social-link" href="{{ include.url }}" target="_blank" rel="noopener"><span class="icon">{% include {{ include.icon }} %}</span> <span class="label-text">{{ include.label }}</span></a>
