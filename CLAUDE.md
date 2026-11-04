@@ -12,7 +12,7 @@ Site estático **Jekyll** publicado no GitHub Pages (domínio agenciagift.github
 - `_config.yml` — título, URL e plugins (mudar exige reiniciar o `serve`).
 - `_layouts/`, `_includes/`, `_sass/` — tema; `index.html` e demais páginas na raiz.
 - Páginas `email_enviado`, `email_com_erro` e `email_incompleto` (quando existem) fazem parte do fluxo do formulário de contato: confirme o fluxo antes de mexer.
-- Comunidade de desenvolvedores; foco atual em renda emergencial (ver `~/.claude/plans/comunidade-gift.md`). Discord foi removido do site.
+- Comunidade de desenvolvedores; foco atual em renda emergencial (estratégia em `~/.claude/plans/detalhes/gift.md`; produção de conteúdo em `docs/plano-producao-conteudo.md`). Discord foi removido do site.
 
 ## Regras
 1. **Commit e push direto na branch padrão, sem pedir OK** (autorizado pelo João; vale a regra global em `~/.claude/CLAUDE.md`). Se o build do Pages falhar ou houver regressão, corrija ou reverta na hora.

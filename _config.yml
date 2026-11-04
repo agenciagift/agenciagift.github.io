@@ -27,6 +27,7 @@ baseurl: ''
 url: https://agenciagift.github.io
 markdown: kramdown
 exclude:
+- docs
 - gulpfile.js
 - README.md
 - desktop.ini
