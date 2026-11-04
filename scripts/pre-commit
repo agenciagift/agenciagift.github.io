@@ -1,0 +1,8 @@
+#!/bin/sh
+# Bloqueia commit com dado pessoal de mentorado/membro. Instalar: cp para .git/hooks/pre-commit
+# Padrões: e-mail pessoal, telefone BR, CSV/XLSX, pastas de mentorados.
+ruim=$(git diff --cached --name-only --diff-filter=ACM | grep -E '(^|/)(mentees|mentorados|dados-privados)/|\.(csv|xlsx|xls)$')
+[ -n "$ruim" ] && { echo "pre-commit: arquivo privado no commit:\n$ruim" >&2; exit 1; }
+achou=$(git diff --cached -U0 | grep -E '^\+' | grep -Ev '^\+\+\+' | grep -E '[A-Za-z0-9._%+-]+@(gmail|hotmail|outlook|yahoo|icloud)\.[a-z.]+|\(?\+?55\)? ?\(?[0-9]{2}\)? ?9?[0-9]{4}-?[0-9]{4}')
+[ -n "$achou" ] && { echo "pre-commit: possível e-mail/telefone pessoal (revise; se for público e intencional, use --no-verify):\n$achou" >&2; exit 1; }
+exit 0

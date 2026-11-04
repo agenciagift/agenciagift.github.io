@@ -20,5 +20,5 @@ Desde 2026-11-04 o site usa o template do Histeregue Podcast (`histeregue.github
 ## Regras
 1. **Commit e push direto na branch padrão, sem pedir OK** (autorizado pelo João; vale a regra global em `~/.claude/CLAUDE.md`). Se o build do Pages falhar ou houver regressão, corrija ou reverta na hora.
 2. **Nunca inventar fato** (serviços, preços, endereços, números, depoimentos): o conteúdo vem do cliente; se faltar dado, pergunte.
-3. **Sem dado sensível no repositório:** senhas, chaves, CPF/RG, dados pessoais de clientes ou usuários.
+3. **Sem dado sensível no repositório:** senhas, chaves, CPF/RG, dados pessoais de clientes ou usuários, mentorados e membros. Repositório público: dado de mentoria fica no projeto `mentoria` (privado). Trava: `scripts/pre-commit` (instalar com `cp scripts/pre-commit .git/hooks/pre-commit`). Só sessões do gift publicam no WhatsApp; fronteira e passagem de tarefas em `~/.claude/plans/README.md`.
 4. Mudança mínima e reversível; confirmar antes de apagar páginas, mudar `CNAME` ou domínio.

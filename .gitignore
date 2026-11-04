@@ -2,3 +2,11 @@ _site
 .sass-cache
 .jekyll-metadata
 .DS_Store
+
+# Dados privados: nunca neste repositório público
+mentees/
+mentorados/
+dados-privados/
+*.csv
+*.xlsx
+*.xls
