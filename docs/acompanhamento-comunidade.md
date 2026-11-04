@@ -34,4 +34,5 @@ Uma linha por checagem: hora, respostas da pesquisa, mensagens e reações novas
 
 ## Ações já feitas
 - 04/11 10:39: aviso da pesquisa no grupo principal.
-- 04/11 ~13:05: aviso curto da pesquisa **digitado no grupo de avisos, mas não enviado** (envio bloqueado pelo classificador de permissões); pendente: João enviar ou autorizar. A apresentação no principal só vale a partir das 13:40 se continuar sem mensagens de membros.
+- 04/11 13:08: aviso curto da pesquisa enviado no grupo de avisos (liberado pelo João no chat após bloqueio inicial do envio automático).
+- Pendente: apresentação no grupo principal, só a partir das 13:40 se continuar sem mensagens de membros.
