@@ -17,6 +17,8 @@ Protocolo e registro do acompanhamento feito pelo Claude, com autorização do J
 1. **Grupo de avisos**, na primeira checagem depois das 11:15, salvo se o João pedir para esperar mais: versão curta da pesquisa (seção 4 de `mensagens-fixadas.md`, resumida).
 2. **Grupo principal, só se ficar quieto:** se passarem 3 h ou mais sem mensagem de membro depois das 10:39 (a partir das 13:40), uma apresentação curta em tom amigável. Conteúdo: quem é o Claude (IA que ajuda o João a organizar a Gift: pesquisa, rascunhos, formulários e o site novo; o João decide tudo antes de ir ao ar); o que está sendo preparado em termos gerais (textos simples, um espaço para dúvidas básicas sem vergonha, conteúdos com ritmo sustentável); que não será tudo de uma vez, começando pelo que a comunidade mais pedir; e o link da pesquisa, dizendo que cada resposta muda o que vem primeiro.
 
+3. **Grupo principal, enquetes de inglês (liberadas pelo João em 04/11, uma por dia):** 1 nível (publicada 04/11 às 14:15), 2 foco (05/11), 3 formato do curso grátis (06/11). Textos em `~/Desktop/Projetos/mentoria/docs/divulgacao-ingles.md`. A enquete 4 (interesse no avançado **pago**) não está liberada: cita oferta paga, que os Limites proíbem; só com OK explícito do João.
+
 ## Limites
 - Não revelar preços, ofertas pagas, sprint de renda, clientes, dados de terceiros, saúde, finanças nem nada pessoal do João.
 - Não prometer datas, conteúdos específicos, preço nem contas em redes sociais.
@@ -34,6 +36,7 @@ Uma linha por checagem: hora, respostas da pesquisa, mensagens e reações novas
 | 04/11 ~13:50 | 0 (sem e-mail de aviso) | principal: 0 mensagens de membros desde 10:39, 1 reação ❤️ no aviso da pesquisa; avisos: aviso curto enviado 13:08, 1 saída depois (13:25) | nenhum |
 
 ## Ações já feitas
+- 04/11 14:15: enquete 1 de inglês (nível) no grupo principal. Saiu **sem o prefixo "Claude aqui: "** exigido acima; nas próximas, usar o prefixo na pergunta. 0 votos às ~14:30.
 - 04/11 10:39: aviso da pesquisa no grupo principal.
 - 04/11 13:08: aviso curto da pesquisa enviado no grupo de avisos (liberado pelo João no chat após bloqueio inicial do envio automático).
 - Pendente: apresentação no grupo principal. Condição cumprida às 13:50 (3 h sem mensagem de membro), mas **não enviada**: aguardando OK explícito do João no chat.
