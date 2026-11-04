@@ -1,5 +1,6 @@
 ---
 title: "Currículo que passa na triagem: 5 conferências rápidas"
+cover_image: /media/curriculo-que-passa-na-triagem.jpg
 categories: [carreira]
 ---
 Muitas vagas recebem um grande número de candidaturas, e a primeira leitura de um currículo costuma ser rápida. Antes de enviar o seu, confira estes cinco pontos. Levam poucos minutos e fazem diferença.

@@ -1,5 +1,6 @@
 ---
 title: "Sem medo de perguntar: o que é uma API?"
+cover_image: /media/o-que-e-uma-api.jpg
 categories: [sem-medo-de-perguntar]
 ---
 Você já ouviu "é só chamar a API" e ficou com vergonha de perguntar o que é? Pergunta boa e muito comum. Vamos por partes.

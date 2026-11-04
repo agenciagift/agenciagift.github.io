@@ -1,5 +1,6 @@
 ---
 title: "Por onde começar a estudar programação sem se perder"
+cover_image: /media/por-onde-comecar-a-estudar.jpg
 categories: [estudo]
 ---
 É a dúvida mais comum de quem chega: "por onde eu começo?". A resposta honesta é que **não existe um único caminho**, mas existe uma ordem que costuma funcionar e evita a sensação de estar perdido.
