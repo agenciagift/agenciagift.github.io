@@ -31,8 +31,9 @@ Uma linha por checagem: hora, respostas da pesquisa, mensagens e reações novas
 |---|---|---|---|
 | 04/11 10:39 | 0 | aviso da pesquisa enviado no grupo principal | |
 | 04/11 ~13:05 | 0 (sem e-mail de aviso no Gmail) | principal: nenhuma mensagem de membro nem reação visível desde 10:39; avisos: sem novidade (só saídas) | nenhum |
+| 04/11 ~13:50 | 0 (sem e-mail de aviso) | principal: 0 mensagens de membros desde 10:39, 1 reação ❤️ no aviso da pesquisa; avisos: aviso curto enviado 13:08, 1 saída depois (13:25) | nenhum |
 
 ## Ações já feitas
 - 04/11 10:39: aviso da pesquisa no grupo principal.
 - 04/11 13:08: aviso curto da pesquisa enviado no grupo de avisos (liberado pelo João no chat após bloqueio inicial do envio automático).
-- Pendente: apresentação no grupo principal, só a partir das 13:40 se continuar sem mensagens de membros.
+- Pendente: apresentação no grupo principal. Condição cumprida às 13:50 (3 h sem mensagem de membro), mas **não enviada**: aguardando OK explícito do João no chat.
