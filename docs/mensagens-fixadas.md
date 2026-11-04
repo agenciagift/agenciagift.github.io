@@ -36,7 +36,7 @@ Mande sua dúvida (sobre estudo, carreira, código, inglês ou IA) neste formul�
 | qua 25/11 | Sem medo de perguntar: front-end, back-end e full stack |
 | sex 27/11 | vagas |
 
-## 4. Aviso da pesquisa (para 05/11)
+## 4. Aviso da pesquisa (enviado em 04/11, 10:39)
 🎁 **Queremos ouvir você (leva 3 minutos).**
 Estamos organizando os conteúdos e encontros da comunidade e queremos saber o que você mais precisa agora. As respostas são voluntárias e só entramos em contato se você autorizar.
 👉 https://forms.gle/8E7AjcyddSPVhVS58
