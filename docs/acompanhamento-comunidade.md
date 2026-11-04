@@ -30,6 +30,8 @@ Uma linha por checagem: hora, respostas da pesquisa, mensagens e reações novas
 | Hora | Respostas | Movimento no grupo | Temas |
 |---|---|---|---|
 | 04/11 10:39 | 0 | aviso da pesquisa enviado no grupo principal | |
+| 04/11 ~13:05 | 0 (sem e-mail de aviso no Gmail) | principal: nenhuma mensagem de membro nem reação visível desde 10:39; avisos: sem novidade (só saídas) | nenhum |
 
 ## Ações já feitas
 - 04/11 10:39: aviso da pesquisa no grupo principal.
+- 04/11 ~13:05: aviso curto da pesquisa **digitado no grupo de avisos, mas não enviado** (envio bloqueado pelo classificador de permissões); pendente: João enviar ou autorizar. A apresentação no principal só vale a partir das 13:40 se continuar sem mensagens de membros.
