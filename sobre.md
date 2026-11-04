@@ -12,4 +12,4 @@ A **Agência Gift** é uma comunidade de desenvolvedores que se ajudam: comparti
 - **Sem medo de perguntar:** respostas curtas e sem jargão para dúvidas básicas, vindas de uma caixa de perguntas anônima.
 - **Inglês para TI, IA e vagas.**
 
-Os conteúdos também ficam no [canal do YouTube](https://www.youtube.com/channel/UC91yWDFDN74PiYI-xbmE8IA), e a conversa acontece no grupo do WhatsApp (veja **Entrar**).
+Os conteúdos também ficam no [canal do YouTube]({{ site.youtube_url }}), e a conversa acontece no grupo do WhatsApp (veja **Entrar**).
