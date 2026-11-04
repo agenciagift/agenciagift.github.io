@@ -1,0 +1,16 @@
+---
+layout: page
+title: Conteúdos
+menu-title: Conteúdos
+position: 3
+---
+
+{% assign grupos = site.posts | group_by_exp: "p", "p.categories.first" %}
+{% for g in grupos %}
+<h2>{{ g.name | replace: '-', ' ' | capitalize }}</h2>
+<ul>
+  {% for post in g.items %}
+  <li><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a> <small>{{ post.date | date: "%d/%m/%Y" }}</small></li>
+  {% endfor %}
+</ul>
+{% endfor %}

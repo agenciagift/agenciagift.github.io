@@ -1,78 +1,239 @@
-.site-header 
-    border-top: 5px solid $grey-color-dark
-    position: absolute
-    width: 100%
-    z-index: 999
+.site-header
+    min-height: 56px
+    a
+        color: $grey-color
+        font-family: $ui-font-family
 
-.site-title 
+.site-title
+    font-size: 26px
+    font-weight: 300
+    line-height: 56px
+    letter-spacing: -1px
+    margin-bottom: 0
     float: left
 
-.site-footer 
-    border-top: 1px solid $grey-color-light
-    padding: $spacing-unit 0
+.site-nav
+    float: right
+    line-height: 56px
+    .menu-icon
+        display: none
 
-.footer-heading 
+    .page-link
+        line-height: $base-line-height
+        margin-left: 20px
+
+    @include media-query($on-palm)
+        position: absolute
+        top: 9px
+        right: $spacing-unit / 2
+        border-radius: 5px
+        text-align: right
+        transition: .6s ease-in-out
+        .menu-icon
+            display: block
+            float: right
+            width: 36px
+            height: 36px
+            line-height: 0
+            padding-top: 10px
+            text-align: center
+            >svg
+                width: 18px
+                height: 18px
+
+        .trigger
+            clear: both
+            display: none
+            opacity: 0
+            transition: 1s ease-in-out
+
+        &:hover
+            padding: 10px
+            background-color: $background-color
+            .trigger
+                display: block
+                padding-bottom: 5px
+                opacity: 1
+
+        .page-link
+            display: block
+            padding: 5px 10px
+            &:not(:last-child)
+                margin-right: 0
+
+            margin-left: 20px
+
+.site-footer
+    padding: $spacing-unit 0
+    a
+        color: $grey-color
+
+.footer-heading
     font-size: 18px
     margin-bottom: $spacing-unit / 2
 
-.page-content 
-    padding: $spacing-unit * 4 0
+.page-content
+    padding-top: $spacing-unit * 2
+    padding-bottom: $spacing-unit * 2
 
-.page-heading 
+.hero
+    background-color: $brand-color
+    background-image: radial-gradient(ellipse at bottom, rgba(#fff, .3), rgba(black, .3))
+    padding: $spacing-unit * 4 $spacing-unit
+
+    +media-query($on-palm)
+        padding-top: $spacing-unit * 2
+        padding-bottom: $spacing-unit * 2
+
+    &.dark
+        background-color: $grey-color-dark
+    
+    &.light
+        background-color: $brand-color-light
+        a:not([data-btn])
+            color: $link-color
+
+    &.blue
+        background-color: $grey-color-light
+        a:not([data-btn])
+            color: $link-color
+
+.page-heading
     font-size: 20px
 
-.post-list 
-    margin-left: 0
-    list-style: none
-
-    > li 
-        margin-bottom: $spacing-unit
-
-.post-meta 
+.post-meta
     font-size: $small-font-size
     color: $grey-color
 
-.post-link 
-    display: block
-    font-size: 24px
+.post-link
+    display: inline-block
+    &:hover, &:focus, &:active
+        text-decoration: none
+        color: #fff
 
-.post-header 
+.post-header
     margin-bottom: $spacing-unit
 
-.post-title 
-    font-size: 42px
-    letter-spacing: -1px
-    line-height: 1
+.post-cover
+    img
+        margin: auto
 
-    @include media-query($on-laptop) 
+.post-title
+    line-height: 1
+    @include media-query($on-laptop)
         font-size: 36px
 
-.post-content 
+.post-content
     margin-bottom: $spacing-unit
 
-    >
-        h1, h2, h3, h4, h5, h6, p, blockquote, 
-        pre, ul, ol, dl, dl, 
-        figure, table
-            @extend .wrapper
-        
-        ul, ol
-            padding-left: $spacing-unit * 2
-
-    h2 
-        font-size: 32px
-
-        @include media-query($on-laptop) 
-            font-size: 28px
-
-    h3 
-        font-size: 26px
-
-        @include media-query($on-laptop) 
-            font-size: 22px
-
-    h4 
-        font-size: 20px
-
-        @include media-query($on-laptop) 
-            font-size: 18px
++media-greater($on-palm)
+    .home-slider
+        %fullscreen
+            position: fixed
+            top: 0
+            left: 0
+            right: 0
+            bottom: 0
+        .site-header, .site-footer
+            @extend %fullscreen
+            z-index: 999
+        .site-header
+            bottom: auto
+        .site-footer
+            top: auto
+        .slider
+            @extend %fullscreen
+            .slide
+                @extend %fullscreen
+                z-index: 9
+                opacity: 0
+                .post-cover
+                    @extend %fullscreen
+                    z-index: -1
+                    background-color: $background-color
+                    img
+                        max-width: initial
+                        min-width: 100%
+                        min-height: 100%
+                        position: absolute
+                        top: 50%
+                        left: 50%
+                        transform: translate(-50%, -50%)
+                        opacity: .1
+                &.prev, &.next, &.current
+                    transition: 1s ease-in-out
+                %slide-contents
+                    transition: .5s ease-in-out
+                .post-meta
+                    @extend %slide-contents
+                .post-title
+                    @extend %slide-contents
+                .post-excerpt
+                    @extend %slide-contents
+                &.prev, &.next
+                    z-index: 9
+                    opacity: 0
+                    .post-title, .post-excerpt, .post-meta
+                        opacity: 0
+                &.prev
+                    transform: translate(-100%)
+                    .post-title
+                        transform: translate(-100%)
+                    .post-excerpt
+                        transform: translate(-50%)
+                &.next
+                    transform: translate(100%)
+                    .post-title
+                        transform: translate(100%)
+                    .post-excerpt
+                        transform: translate(50%)
+                &.current
+                    z-index: 99
+                    opacity: 1
+                    .post-title
+                        transition-delay: .5s
+                    .post-excerpt
+                        transition-delay: .75s
+            .slide-content
+                @extend %fullscreen
+            
+            &-controls
+                position: absolute
+                left: 0
+                right: 0
+                z-index: 9999
+                .slider-control
+                    margin-left: 5%
+                    margin-right: 5%
+                    padding: 0
+                    background-color: transparent
+                    border: 0 none
+                    box-shadow: none
+                    color: $grey-color
+                    &:hover, &:focus, &:active
+                        color: #fff
+                        box-shadow: none
+                    svg
+                        display: inline-block
+                        vertical-align: middle
+                        width: 40px
+                        height: 40px
+                        color: inherit
+                        > *
+                            fill: currentcolor
+                    &[data-icon="play"]
+                        .pause
+                            display: none
+                    &[data-icon="pause"]
+                        .play
+                            display: none
+                    +media-greater($large-content-width)
+                        &.prev, &.next
+                            position: fixed
+                            top: 50%
+                        &.prev
+                            left: 0
+                        &.next
+                            right: 0
+                        &.playpause
+                            margin: auto

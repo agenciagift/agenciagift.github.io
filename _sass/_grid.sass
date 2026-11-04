@@ -8,6 +8,8 @@
 
     +variant(row)
         flex-direction: row
+        > *
+            display: inline-block
 
     +variant(column)
         flex-direction: column
@@ -46,8 +48,10 @@
 
     +variant(spacing)
         +media-greater($on-palm)
-            > :not(:last-child)
+            > :not(:last-child):not([data-cell~="order-1"])
                 margin-right: $spacing-unit
+            > [data-cell~="order-1"]
+                margin-left: $spacing-unit
 
         +media-query($on-palm)
             > *
@@ -55,8 +59,10 @@
 
     +variant(small-spacing)
         +media-greater($on-palm)
-            > :not(:last-child)
+            > :not(:last-child):not([data-cell~="order-1"])
                 margin-right: $spacing-unit / 4
+            > [data-cell~="order-1"]
+                margin-left: $spacing-unit / 4
 
         +media-query($on-palm)
             > *
@@ -97,6 +103,11 @@
         +variant(stretch)
             align-self: stretch
 
+        +media-greater($on-palm)
+
+            +variant(order-1)
+                order: 1
+
         +media-query($on-palm)
             margin-left: 0
             margin-right: 0
@@ -110,20 +121,29 @@
     +variant(cols-2)
         flex-wrap: wrap
         > *
-            display: inline-block
             +media-greater($on-palm)
                 flex-basis: 45%
                 flex-basis: calc(50% - #{$spacing-unit})
-                &:nth-child(even)
+                &:nth-child(even):not([data-cell="order-1"])
+                    margin-right: 0
+
+    +variant(cols-3)
+        flex-wrap: wrap
+        > *
+            +media-greater($on-palm)
+                flex-basis: 26%
+                flex-basis: calc(33.333% - #{$spacing-unit})
+                &:nth-child(3n):not([data-cell="order-1"])
                     margin-right: 0
 
     +media-query($on-palm)
         &:not([data-grid~="row"])
             flex-direction: column
-            align-items: stretch
             height: auto
-            flex-basis: auto
             > *
                 display: block
                 height: auto
                 flex-basis: auto
+            > [data-grid]
+                display: flex
+

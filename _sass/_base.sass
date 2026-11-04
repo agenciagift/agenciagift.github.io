@@ -1,8 +1,8 @@
-body, h1, h2, h3, h4, h5, h6, p, blockquote, pre, hr, dl, dd, ol, ul, figure 
+body, h1, h2, h3, h4, h5, h6, p, blockquote, pre, hr, dl, dd, ol, ul, figure
     margin: 0
     padding: 0
 
-body 
+body
     font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family
     color: $text-color
     background-color: $background-color
@@ -12,137 +12,149 @@ body
     -o-font-feature-settings: "kern" 1
     font-feature-settings: "kern" 1
     font-kerning: normal
-    box-sizing: border-box
 
+    box-sizing: border-box
     *
         box-sizing: inherit
 
-::-moz-selection
-    text-shadow: none
-    background: #00ced1
-::selection
-    text-shadow: none
-    background: #00ced1
-
-h1, h2, h3, h4, h5, h6 
-    margin-top: $spacing-unit
-    margin-bottom: $spacing-unit
-
-p, blockquote, pre, ul, ol, dl, figure, %vertical-rhythm 
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, ul, ol, dl, figure, %vertical-rhythm
     margin-top: $spacing-unit / 2
     margin-bottom: $spacing-unit / 2
 
-img 
+img
     max-width: 100%
     vertical-align: middle
-    border: none
 
-figure > img 
+figure>img
     display: block
 
-figcaption 
+figcaption
     font-size: $small-font-size
 
-dl
-    display: grid
-    grid-template-columns: min-content 1fr
-    grid-gap: $spacing-unit / 2
-
-ul, ol 
+ul, ol
     margin-left: $spacing-unit
+    &.seamless
+        margin-left: auto
+        list-style: none
 
 li
-    margin-bottom: $spacing-unit / 2
-    > ul, > ol 
+    >ul, >ol
         margin-bottom: 0
 
-h1, h2, h3, h4, h5, h6 
+h1, h2, h3, h4, h5, h6
     font:
         family: $title-font-family
         weight: $base-font-weight
 
-a 
-    color: $brand-color
+@for $i from 1 through 6
+    h#{$i}
+        font-size: $base-font-size + $base-font-size / $i * 2
+
+%ui-transition
+    transition: .3s ease-in-out
+
+a
+    color: $link-color
     text-decoration: none
     @extend %ui-transition
-
-    &:hover 
-        color: $green-dark
+    &:hover, &:focus, &:active
         text-decoration: underline
 
-blockquote 
+blockquote
     color: $grey-color
     border-left: 4px solid $grey-color-light
     padding-left: $spacing-unit / 2
     font-size: 18px
     letter-spacing: -1px
     font-style: italic
-
-    > :last-child 
+    > :last-child
         margin-bottom: 0
 
-pre, code 
+pre, code
     font-size: 15px
     border: 1px solid $grey-color-light
     border-radius: 3px
-    background-color: #eef
+    background-color: #000
 
-code 
+code
     padding: 1px 5px
 
-pre 
+pre
     padding: 8px 12px
     overflow-x: auto
-
-    > code 
-        border: 0
+    > code
+        border: 0 none
         padding-right: 0
         padding-left: 0
 
-.wrapper 
+.wrapper
     max-width: $content-width
     margin-right: auto
     margin-left: auto
     padding-right: $spacing-unit
     padding-left: $spacing-unit
     @extend %clearfix
-
-    @include media-query($on-laptop) 
+    @include media-query($on-laptop)
         padding-right: $spacing-unit / 2
         padding-left: $spacing-unit / 2
 
-%clearfix 
+    &.large
+        max-width: $large-content-width
 
-    &:after 
+    &.small
+        max-width: $on-laptop
+
+    &.mini
+        max-width: $on-palm
+
+%clearfix
+    &:after
         content: ""
         display: table
         clear: both
 
-.icon 
-    display: inline-block
-    vertical-align: middle
-
-    > svg
-        width: 1em
-        height: 1em
+.icon
+    >svg
+        display: inline-block
+        width: 16px
+        height: 16px
+        vertical-align: middle
         color: inherit
-
-        path 
+        >*
             fill: currentcolor
 
-.hero
-    padding: $spacing-unit / 2
-    background-color: $green-dark
++module(label)
+    display: inline-block
+    vertical-align: text-bottom
+    text-align: center
+    padding-left: 15px
+    padding-right: 15px
+    background-color: $grey-color
     color: #fff
+    font-size: $small-font-size
+    text-transform: uppercase
+    border-radius: 999px
 
-.btn
-    @extend button
++module(btn)
+    display: inline-block
+    vertical-align: middle
+    text-align: center
+    text-decoration: none
+    outline: none
+    padding-left: 15px
+    padding-right: 15px
+    background-color: $btn-color
+    font-family: $ui-font-family
+    color: #fff
+    border-radius: 4px
+    box-shadow: 0 3px 10px 0 rgba(black, .3)
+    &:hover, &:focus, &:active
+        text-decoration: none
+        color: #fff
+        box-shadow: 0 3px 15px 0 rgba(black, .5)
+    
+    +variant(large)
+        font-size: 2em
+        padding-left: 30px
+        padding-right: 30px
 
-.video-frame
-    position: relative
-    height: 0
-    padding-bottom: 56%
-    iframe, object, embed, > *
-        position: absolute
-        width: 100%
-        height: 100%

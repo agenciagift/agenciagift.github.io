@@ -2,9 +2,28 @@
 
   <div class="wrapper">
 
-    <h2 class="footer-heading">{{ site.title }}</h2>
+    <div data-grid="spacing">
 
-    <p>{{ site.description }}</p>
+      <div data-cell="2of3">
+        <h2 class="footer-heading">{{ site.title }}</h2>
+        <p>
+          {{ site.description }} 
+          <a href="{{ "/feed.xml" | prepend: site.baseurl }}">Assine o feed (RSS)</a>
+        </p>
+      </div>
+
+      <ul class="seamless" data-cell="shrink fill">
+        {% if site.github_username %}
+        <li>
+          {% include icon-github.html username=site.github_username %}
+        </li>
+        {% endif %}
+
+        <li><a href="https://www.youtube.com/channel/UC91yWDFDN74PiYI-xbmE8IA" target="_blank" rel="noopener">YouTube</a></li>
+        <li><a href="{{ site.whatsapp_url }}" target="_blank" rel="noopener">WhatsApp</a></li>
+      </ul>
+
+    </div>
 
   </div>
 
