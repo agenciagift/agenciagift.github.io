@@ -39,7 +39,7 @@ Mande sua dúvida (sobre estudo, carreira, código, inglês ou IA) neste formul�
 ## 4. Aviso da pesquisa (para 05/11)
 🎁 **Queremos ouvir você (leva 3 minutos).**
 Estamos organizando os conteúdos e encontros da comunidade e queremos saber o que você mais precisa agora. As respostas são voluntárias e só entramos em contato se você autorizar.
-👉 `[link da pesquisa]`
+👉 https://forms.gle/8E7AjcyddSPVhVS58
 
 ## 5. Aviso do site novo
 🎁 **O site da Agência Gift está de cara nova!** Já tem textos para quem está começando, como "O que é uma API?", "Por onde começar a estudar programação" e "Currículo que passa na triagem". Dê uma olhada e conte o que achou: https://agenciagift.github.io
