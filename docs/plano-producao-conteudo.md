@@ -54,10 +54,12 @@ Modelo de post:
 ---
 title: "O que é uma API?"
 categories: [sem-medo-de-perguntar]
-cover_image: /img/posts/api.jpg   # opcional; há uma imagem padrão
+image: /media/api.jpg            # capa e og:image (jekyll-seo-tag); sem ela vale /img/bg-lg.jpg
+image_alt: "Descrição da foto"   # texto alternativo da capa (acessibilidade)
 audio:                           # opcional (episódio em áudio)
 ---
 ```
+Capas ficam em `media/` e passam por `sh scripts/otimizar-imagens.sh`. Vídeo do canal dentro do texto: `{% include youtube.html key="git-vs-github" %}` (chaves em `_data/youtube.yml`). Ambiente do GitHub Pages e plugins: `docs/github-pages-ambiente.md`.
 Estrutura do texto: a pergunta como o iniciante faria; resposta em 1 parágrafo; analogia; exemplo mínimo; "onde ir depois" (1 link confiável); convite para mandar a próxima pergunta.
 
 ## Calendário do primeiro mês (modelo)

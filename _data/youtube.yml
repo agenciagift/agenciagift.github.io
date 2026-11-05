@@ -1,0 +1,44 @@
+# Catálogo do canal https://www.youtube.com/@agenciagift (somente conteúdo educativo reaproveitável).
+# Uso: {% include youtube.html key="git-vs-github" %}   (vídeo ou playlist; ver _includes/youtube.html)
+# Os vídeos foram verificados em 2026-11-04 (embed liberado pelo dono do canal).
+
+# Playlists
+git-playlist: {playlist: PLVjC-d-5tscTexL5AVk1Wn8xu5cx3spHs, title: "Aprenda Git e seja um Gitter Hero (playlist)"}
+intensivando-playlist: {playlist: PLVjC-d-5tscTzuAzJsPo0KLqueB7q0kyp, title: "IntensiVando Frontend (playlist)"}
+tcnr-playlist: {playlist: PLVjC-d-5tscTI1tSAHvCL6oUXCGAwpsUz, title: "Tudo Certo Nada Resolvido (playlist)"}
+markito-playlist: {playlist: PLVjC-d-5tscT0loCYDExv9p3IxAqTxlB7, title: "Markito Talk Show (playlist)"}
+
+# Git (playlist "Aprenda Git e seja um Gitter Hero")
+git-intro: {id: MCtJnqkBPrA, title: "[GIT-001] Intro: Onde é que compra esse tal de Git?"}
+git-github-dono: {id: xwsivaCnWFw, title: "[GIT-001] E o Github? É o dono do Git?"}
+git-status: {id: YRGj9CmN1no, title: "[GIT-001] Verificando o status do repositório"}
+git-add: {id: 7QFDUDFRp8I, title: "[GIT-001] Filosofando sobre \"git add\""}
+git-commits: {id: nCVgpE8vbWQ, title: "[GIT-001] Commits e o conceito de lista encadeada"}
+git-equipe: {id: lJNfzGvrjYU, title: "[GIT-001] Trabalhando em equipe com o Git"}
+git-vs-github: {id: DFbZ_0ZTgUI, title: "[GIT-001] Diferenciando o que é Git e as plataformas como o Github"}
+git-merge: {id: TtwOFGPHo0w, title: "[GIT-001] Resolvendo conflitos de mesclagem (git merge)"}
+git-like-a-pro: {id: HLiESuD1yHo, title: "[GIT-001] Dicas para usar o Git like a pro"}
+git-branch: {id: v5zCw75cUzs, title: "[GIT-001] Explicando o conceito de branch (galho)"}
+git-projeto: {id: U9Pr6CENu7E, title: "[GIT-002] Fazendo um projeto rapidão no Github"}
+
+# Front-end (playlist "IntensiVando Frontend") e CSS
+intensivando-1: {id: xM8OR-ssDG0, title: "IntensiVando Frontend #001 - Visão geral do desenvolvimento de frontend"}
+intensivando-2: {id: J3iuURcJuzM, title: "IntensiVando Frontend #002 - React e suas dependências"}
+intensivando-3: {id: URaYN6fmAJg, title: "IntensiVando Frontend #003 - Praticando HTML e CSS com o layout Holy Grail"}
+intensivando-4: {id: ILdwXVNh818, title: "IntensiVando Frontend #004 - exemplo de uso do Javascript e as features do ES6"}
+onde-aprender-css: {id: mtiV0BeMKB0, title: "Onde aprender CSS"}
+flexbox-grid: {id: QRzED3YYgPs, title: "Flexbox, Grid Layout e o Santo Graal dos layouts"}
+css-metodologias: {id: HBsp_vHHrf4, title: "Metodologias de CSS - OOCSS, SMACSS, BEM, Atomic CSS"}
+
+# Carreira
+linkedin-devs: {id: Kst9OHJQVwI, title: "Como construir um perfil no Linkedinho para devs"}
+soft-skills: {id: R-VKrjGULgQ, title: "Soft skills em TI e a importância da comunicação no desenvolvimento da carreira"}
+tcnr-s1e1: {id: cCBMxADH8mQ, title: "TCNR S1E1 - O que precisamos para que o mercado de TI consiga preencher tantas vagas"}
+tcnr-2: {id: 4whqCkA7D1g, title: "TCNR #2 - No Code, Low Code e os novos mercados de trabalho"}
+ia-mercado-trabalho: {id: n0wCQpKc6JQ, title: "O impacto das IA no mercado de trabalho (ao vivo)"}
+
+# .NET / C# e inglês
+dotnet-intro: {id: IjmE0PpQLmk, title: "dotnet ou .Net - entendendo e instalando um projetinho"}
+dotnet-console: {id: 9PQWoDS-dno, title: "Basicão de dotnet fazendo um aplicativo de console"}
+csharp-freecodecamp: {id: zk6ifYHUyNI, title: "Formação gratuita em C# no FreeCodeCamp"}
+tongue-twisters: {id: QKIh-aRjOLI, title: "Tongue Twisters - Jogando trava-línguas em inglês"}

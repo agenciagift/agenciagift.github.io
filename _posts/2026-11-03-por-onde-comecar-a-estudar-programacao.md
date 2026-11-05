@@ -1,6 +1,7 @@
 ---
 title: "Por onde começar a estudar programação sem se perder"
 image: /media/por-onde-comecar-a-estudar.jpg
+image_alt: "Corredor curvo de uma biblioteca com estantes cheias de livros coloridos"
 categories: [estudo]
 ---
 É a dúvida mais comum de quem chega: "por onde eu começo?". A resposta honesta é que **não existe um único caminho**, mas existe uma ordem que costuma funcionar e evita a sensação de estar perdido.
@@ -27,6 +28,12 @@ Ler e assistir ajuda, mas o que fixa é **construir**. Depois de cada conceito, 
 - Trocar de curso toda semana em busca do "melhor".
 - Acumular tutoriais sem criar nada.
 - Comparar-se com quem já tem anos de estrada.
+
+## Para assistir
+Se você quer começar pelo controle de versões, a playlist de Git do canal da Gift reúne os vídeos em ordem. E, para CSS, este vídeo mostra onde aprender.
+
+{% include youtube.html key="git-playlist" %}
+{% include youtube.html key="onde-aprender-css" %}
 
 ## E depois?
 Vamos publicar aqui trilhas completas para cada objetivo. Se você quiser sugerir qual delas deve vir primeiro, conte no grupo ou use a caixa de perguntas.

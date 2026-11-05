@@ -5,7 +5,7 @@ layout: default
 <article class="page-content" itemscope itemtype="http://schema.org/BlogPosting">
 
   {% if page.image %}
-    <div class="wrapper post-cover"><img src="{{ page.image }}" alt="{{ page.title }}"></div>
+    <div class="wrapper post-cover"><img src="{{ page.image }}" alt="{{ page.image_alt | default: page.title | escape }}"></div>
   {% endif %}
 
   <header class="wrapper post-header">
@@ -16,6 +16,21 @@ layout: default
   <div class="wrapper post-content" itemprop="articleBody">
     {{ content }}
   </div>
+
+  <footer class="wrapper post-footer">
+    {%- assign categoria = page.categories | first -%}
+    {%- capture msg %}{{ page.title }} {{ page.url | absolute_url }}{% endcapture %}
+    <p><a href="https://wa.me/?text={{ msg | url_encode }}" target="_blank" rel="noopener">Compartilhar no WhatsApp</a></p>
+    {%- assign relacionados = site.categories[categoria] | where_exp: "p", "p.url != page.url" -%}
+    {%- if relacionados.size > 0 %}
+    <h2>Leia também</h2>
+    <ul>
+      {%- for p in relacionados limit: 3 %}
+      <li><a href="{{ p.url | relative_url }}">{{ p.title }}</a></li>
+      {%- endfor %}
+    </ul>
+    {%- endif %}
+  </footer>
 
 </article>
 

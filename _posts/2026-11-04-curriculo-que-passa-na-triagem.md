@@ -1,6 +1,7 @@
 ---
 title: "Currículo que passa na triagem: 5 conferências rápidas"
 image: /media/curriculo-que-passa-na-triagem.jpg
+image_alt: "Pessoa segurando um currículo impresso sobre uma mesa"
 categories: [carreira]
 ---
 Muitas vagas recebem um grande número de candidaturas, e a primeira leitura de um currículo costuma ser rápida. Antes de enviar o seu, confira estes cinco pontos. Levam poucos minutos e fazem diferença.
@@ -19,6 +20,11 @@ Para quem está começando, uma página costuma bastar. Use poucas fontes, espa�
 
 ## 5. Os links funcionam?
 Abra o LinkedIn e o GitHub com uma janela anônima e veja o que um desconhecido vê. Tenha um projeto publicado e com um README que explique o que ele faz.
+
+## E o LinkedIn?
+O mesmo cuidado vale para o perfil. Este vídeo do canal mostra como montar um perfil para quem desenvolve software. Ele foi gravado há alguns anos, então confira se as telas do LinkedIn mudaram.
+
+{% include youtube.html key="linkedin-devs" %}
 
 ## Quer ajuda para revisar?
 Nas mentorias abertas da comunidade mostramos esses pontos em currículos reais, **sempre com autorização de quem enviou**. Avise no grupo se quiser participar.

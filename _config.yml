@@ -44,6 +44,9 @@ plugins:
 - jekyll-paginate
 - jekyll-seo-tag
 - jekyll-sitemap
+- jekyll-feed
+feed:
+  posts_limit: 20
 paginate: 10
 paginate_path: timeline/:num/
 exclude:

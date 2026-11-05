@@ -1,0 +1,15 @@
+{%- comment -%}
+  Vídeo ou playlist do canal da Gift, a partir de _data/youtube.yml.
+  Uso: {% include youtube.html key="git-vs-github" %}
+       {% include youtube.html key="git-playlist" legenda="Playlist completa de Git" %}
+  Usa youtube-nocookie.com (sem cookie de rastreamento até o play) e carrega só ao rolar a página.
+{%- endcomment -%}
+{%- assign yt = site.data.youtube[include.key] -%}
+{%- if yt.playlist -%}
+  {%- assign src = "videoseries?list=" | append: yt.playlist -%}
+  {%- assign href = "https://www.youtube.com/playlist?list=" | append: yt.playlist -%}
+{%- else -%}
+  {%- assign src = yt.id -%}
+  {%- assign href = "https://www.youtube.com/watch?v=" | append: yt.id -%}
+{%- endif -%}
+<figure class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/{{ src }}" title="{{ yt.title | escape }}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe><figcaption>{{ include.legenda | default: yt.title }} · <a href="{{ href }}" target="_blank" rel="noopener">assistir no YouTube</a></figcaption></figure>

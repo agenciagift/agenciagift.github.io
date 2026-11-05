@@ -7,7 +7,7 @@ layout: default
     <article class="slide">
       {% if post.image %}
       <figure class="post-cover">
-        <img src="{{ post.image }}" alt="{{ post.title }}">
+        <img src="{{ post.image }}" alt="{{ post.image_alt | default: post.title | escape }}">
       </figure>
       {% endif %}
       <section class="slide-content" data-grid="center">

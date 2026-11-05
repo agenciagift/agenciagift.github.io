@@ -15,7 +15,7 @@ Site estático **Jekyll** publicado no GitHub Pages (domínio agenciagift.github
 - Comunidade de desenvolvedores; foco atual em renda emergencial (estratégia em `~/.claude/plans/detalhes/gift.md`; produção de conteúdo em `docs/plano-producao-conteudo.md`). Discord foi removido do site.
 
 ## Site (template Histeregue Podcast)
-Desde 2026-11-04 o site usa o template do Histeregue Podcast (`histeregue.github.io`): slider de conteúdos, categorias, RSS. Posts em `_posts/` (modelo e fluxo em `docs/plano-producao-conteudo.md`); prévia local: `bundle exec jekyll serve`. Identidade visual provisória: depende do rebranding (`~/.claude/plans/detalhes/marca.md`).
+Desde 2026-11-04 o site usa o template do Histeregue Podcast (`histeregue.github.io`): slider de conteúdos, categorias, RSS. Posts em `_posts/` (modelo e fluxo em `docs/plano-producao-conteudo.md`); prévia local: `bundle exec jekyll serve`. Ambiente do GitHub Pages, plugins permitidos e o que o site usa: `docs/github-pages-ambiente.md`. Identidade visual provisória: depende do rebranding (`~/.claude/plans/detalhes/marca.md`).
 
 ## Regras
 1. **Commit e push direto na branch padrão, sem pedir OK** (autorizado pelo João; vale a regra global em `~/.claude/CLAUDE.md`). Se o build do Pages falhar ou houver regressão, corrija ou reverta na hora.
