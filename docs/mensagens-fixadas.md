@@ -52,7 +52,11 @@ Estamos organizando os conteúdos e encontros da comunidade e queremos saber o q
 - "Qual horário é melhor para uma mentoria aberta?" (manhã de sábado, noite em dia útil, almoço)
 - "Esta semana você conseguiu estudar?" (sim, um pouco, não) (sem julgamento)
 
-## 8. Reforço da enquete de nível de inglês (05/11; aguardando aprovação do João)
-Enviar **respondendo à própria enquete** (opção "responder" na mensagem). Sem citar oferta paga; texto aprovado sai sem o prefixo "Claude aqui: ".
+## 8. Reforço da enquete de nível de inglês (enviado pelo João em 05/11/2026)
+Enviado como **mensagem avulsa no grupo** (não como resposta à enquete: faltou marcar "responder", mas há poucas mensagens entre os dois, então a enquete continua fácil de achar). Com @todos, sem citar oferta paga e sem o prefixo "Claude aqui: ". A mensagem fixada com o link da pesquisa foi mantida. Texto final enviado:
 
-🎁 **Ainda dá tempo de votar na enquete!** É um toque e ajuda a escolher o nível do curso de inglês para TI. Se ficar em dúvida entre dois níveis, marque o mais próximo: não precisa ser exato. Quem ainda não respondeu, a sua opinião conta muito.
+@todos
+
+🎁 Ainda dá tempo de votar na enquete! Um clique seu já me ajuda a escolher o nível do curso de inglês para TI. Se ficar em dúvida entre dois níveis, marque o mais próximo: não precisa ser exato. Quem ainda não respondeu, a sua opinião conta muito.
+
+🥂
