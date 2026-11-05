@@ -18,11 +18,14 @@ collections:
 defaults:
 - scope:
     path: ''
+  values:
+    image: /img/bg-lg.jpg
+- scope:
+    path: ''
     type: posts
   values:
     layout: post
     permalink: post/:title/
-    cover_image: /img/bg-lg.jpg
     audio:
 - scope:
     path: ''
@@ -39,6 +42,8 @@ sass:
 plugins:
 - jekyll-coffeescript
 - jekyll-paginate
+- jekyll-seo-tag
+- jekyll-sitemap
 paginate: 10
 paginate_path: timeline/:num/
 exclude:
