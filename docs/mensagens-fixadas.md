@@ -42,7 +42,7 @@ Estamos organizando os conteúdos e encontros da comunidade e queremos saber o q
 👉 https://forms.gle/8E7AjcyddSPVhVS58
 
 ## 5. Aviso do site novo
-🎁 **O site da Agência Gift está de cara nova!** Já tem textos para quem está começando, como "O que é uma API?", "Por onde começar a estudar programação" e "Currículo que passa na triagem". Dê uma olhada e conte o que achou: https://agenciagift.github.io
+🎁 **O site da Agência Gift está de cara nova!** Já tem textos para quem está começando, como "O que é uma API?", "Por onde começar a estudar programação" e "Currículo que passa na triagem" e "O que é Git e por que usar?". Dê uma olhada e conte o que achou: https://agenciagift.github.io
 
 ## 6. Pergunta da semana (modelo)
 🎁 **Pergunta da semana (#basico):** [a pergunta, como o iniciante faria]. Respondam sem pressa e sem jargão. Se você também tinha essa dúvida, reaja com 👍.
@@ -51,3 +51,8 @@ Estamos organizando os conteúdos e encontros da comunidade e queremos saber o q
 - "O que você mais quer aprender agora?" (estudo, currículo, entrevista, inglês, IA, vagas)
 - "Qual horário é melhor para uma mentoria aberta?" (manhã de sábado, noite em dia útil, almoço)
 - "Esta semana você conseguiu estudar?" (sim, um pouco, não) (sem julgamento)
+
+## 8. Reforço da enquete de nível de inglês (05/11; aguardando aprovação do João)
+Enviar **respondendo à própria enquete** (opção "responder" na mensagem). Sem citar oferta paga; texto aprovado sai sem o prefixo "Claude aqui: ".
+
+🎁 **Ainda dá tempo de votar na enquete!** É um toque e ajuda a escolher o nível do curso de inglês para TI. Se ficar em dúvida entre dois níveis, marque o mais próximo: não precisa ser exato. Quem ainda não respondeu, a sua opinião conta muito.
