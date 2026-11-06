@@ -1,0 +1,158 @@
+{%- comment -%}
+Caixa de perguntas anônima, enviada na própria página (plano: docs/plano-caixa-perguntas-ux.md).
+Usar UMA vez por página (ids fixos). Envio: POST do formulário para o Google Forms dentro de um iframe invisível.
+Sem JavaScript o formulário continua funcionando (abre a confirmação do Google em outra aba).
+Os nomes dos campos e as opções precisam bater com o Forms; conferir ao editar o formulário.
+{%- endcomment -%}
+{%- assign assuntos = "Estudo (por onde começar)|Carreira, currículo e entrevistas|Código e ferramentas|Inglês para tecnologia|Inteligência artificial|Outro assunto" | split: "|" -%}
+<section class="caixa-form" id="caixa-pergunta" aria-labelledby="caixa-titulo">
+  <p class="caixa-form__selo">Anônima · sem nome, sem e-mail</p>
+  <h2 class="caixa-form__titulo" id="caixa-titulo">Caixa de perguntas</h2>
+  <p class="caixa-form__intro">Tem uma dúvida e não quer aparecer? Escreva aqui. Respondemos de 3 a 5 por semana, no grupo e no site, sem citar quem perguntou.</p>
+
+  <form id="caixa-form" action="{{ site.caixa_perguntas_form_url }}" method="post" target="_blank" rel="noopener noreferrer" autocomplete="off">
+    <input type="hidden" name="fvv" value="1">
+    <input type="hidden" name="pageHistory" value="0">
+
+    <div class="caixa-form__campo">
+      <label for="caixa-texto">Qual é a sua pergunta?</label>
+      <textarea id="caixa-texto" name="{{ site.caixa_perguntas_campo_pergunta }}" rows="5" maxlength="1000" required
+                aria-describedby="caixa-aviso caixa-erro" placeholder="Escreva com suas palavras. Não existe pergunta boba."></textarea>
+      <div class="caixa-form__meta">
+        <span id="caixa-aviso">Evite escrever dados pessoais na pergunta.</span>
+        <span id="caixa-contador" aria-hidden="true">0 / 1000</span>
+      </div>
+    </div>
+
+    <fieldset class="caixa-form__assuntos">
+      <legend>Sobre o quê é? <span>(opcional)</span></legend>
+      <div class="caixa-form__etiquetas">
+        {%- for assunto in assuntos %}
+        <span class="caixa-form__etiqueta">
+          <input type="radio" id="caixa-assunto-{{ forloop.index }}" name="{{ site.caixa_perguntas_campo_assunto }}" value="{{ assunto | escape }}">
+          <label for="caixa-assunto-{{ forloop.index }}">{{ assunto }}</label>
+        </span>
+        {%- endfor %}
+      </div>
+    </fieldset>
+
+    <div class="honeypot" aria-hidden="true">
+      <label for="caixa-site">Não preencha este campo</label>
+      <input type="text" id="caixa-site" name="website" tabindex="-1" autocomplete="off">
+    </div>
+
+    <p class="caixa-form__erro" id="caixa-erro" role="alert" hidden>
+      <span data-msg></span>
+      <a data-reserva href="{{ site.caixa_perguntas_url }}" target="_blank" rel="noopener" hidden>Usar o formulário original (abre em nova aba)</a>
+    </p>
+
+    <button type="submit" class="btn caixa-form__enviar" id="caixa-enviar">Enviar pergunta</button>
+    <p class="caixa-form__privacidade">O envio é recebido pelo Google Forms, sem nome nem e-mail.</p>
+  </form>
+
+  <div class="caixa-form__ok" id="caixa-ok" tabindex="-1" role="status" hidden>
+    <p class="caixa-form__ok-titulo">Pergunta enviada. Obrigado!</p>
+    <p>Respondemos de 3 a 5 por semana, no grupo e no site, sem citar quem perguntou.</p>
+    <button type="button" class="btn btn--secondary" id="caixa-outra">Enviar outra pergunta</button>
+  </div>
+
+  <iframe name="caixa-iframe" title="Resposta do envio (oculto)" hidden tabindex="-1" sandbox="allow-forms" referrerpolicy="no-referrer"></iframe>
+
+  <noscript><p class="caixa-form__privacidade">Sem JavaScript, o envio abre a confirmação do Google em outra aba.</p></noscript>
+</section>
+<script>
+(function () {
+  var box = document.getElementById('caixa-pergunta');
+  if (!box) return;
+  var form = document.getElementById('caixa-form');
+  var iframe = box.querySelector('iframe');
+  var ta = document.getElementById('caixa-texto');
+  var hp = document.getElementById('caixa-site');
+  var count = document.getElementById('caixa-contador');
+  var err = document.getElementById('caixa-erro');
+  var errMsg = err.querySelector('[data-msg]');
+  var reserva = err.querySelector('[data-reserva]');
+  var send = document.getElementById('caixa-enviar');
+  var ok = document.getElementById('caixa-ok');
+  var intro = box.querySelector('.caixa-form__intro');
+  var again = document.getElementById('caixa-outra');
+
+  var MIN_MS = 3000;      /* tempo mínimo entre abrir a página e enviar */
+  var GAP_MS = 30000;     /* intervalo mínimo entre envios no mesmo navegador */
+  var TIMEOUT_MS = 15000; /* sem confirmação do iframe: avisa a pessoa */
+  var KEY = 'caixa-ultimo-envio';
+  var opened = Date.now(), waiting = false, timer = null;
+
+  function lastSent() {
+    try { return parseInt(localStorage.getItem(KEY), 10) || 0; } catch (e) { return 0; }
+  }
+  function markSent() {
+    try { localStorage.setItem(KEY, String(Date.now())); } catch (e) { /* sem armazenamento: segue sem o intervalo */ }
+  }
+  function updateCount() { count.textContent = ta.value.length + ' / ' + ta.maxLength; }
+  function clearError() {
+    err.hidden = true; reserva.hidden = true; errMsg.textContent = '';
+    ta.removeAttribute('aria-invalid');
+  }
+  function fail(msg, field, showReserva) {
+    errMsg.textContent = msg;
+    reserva.hidden = !showReserva;
+    err.hidden = false;
+    if (field) { field.setAttribute('aria-invalid', 'true'); field.focus(); }
+  }
+  function busy(on) {
+    waiting = on;
+    send.disabled = on;
+    form.setAttribute('aria-busy', on ? 'true' : 'false');
+    send.textContent = on ? 'Enviando…' : 'Enviar pergunta';
+  }
+  function showOk() {
+    form.hidden = true; intro.hidden = true; ok.hidden = false; ok.focus();
+  }
+
+  /* JavaScript ativo: o envio vai para o iframe invisível e a página não muda */
+  form.target = iframe.name;
+  form.noValidate = true;
+  updateCount();
+  ta.addEventListener('input', function () { updateCount(); if (!err.hidden) clearError(); });
+
+  form.addEventListener('submit', function (e) {
+    if (waiting) { e.preventDefault(); return; }
+    clearError();
+    if (hp.value) {              /* robô: finge sucesso e não envia */
+      e.preventDefault(); form.reset(); updateCount(); showOk(); return;
+    }
+    var text = ta.value.trim();
+    if (!text) { e.preventDefault(); ta.value = ''; updateCount(); fail('Escreva sua pergunta antes de enviar.', ta); return; }
+    if (text.length > ta.maxLength) { e.preventDefault(); fail('A pergunta passou de ' + ta.maxLength + ' caracteres. Encurte um pouco.', ta); return; }
+    if (Date.now() - opened < MIN_MS) { e.preventDefault(); fail('Só um instante: revise sua pergunta e envie de novo.'); return; }
+    var wait = GAP_MS - (Date.now() - lastSent());
+    if (wait > 0) { e.preventDefault(); fail('Aguarde ' + Math.ceil(wait / 1000) + ' segundos para enviar outra pergunta.'); return; }
+    if (navigator.onLine === false) { e.preventDefault(); fail('Parece que você está sem internet. Seu texto foi mantido; tente de novo quando voltar a conexão.', null, true); return; }
+    ta.value = text;
+    busy(true);
+    timer = setTimeout(function () {
+      if (!waiting) return;
+      busy(false);
+      fail('Não conseguimos confirmar o envio. Seu texto foi mantido: tente de novo ou use o formulário original.', null, true);
+    }, TIMEOUT_MS);
+  });
+
+  /* a resposta do Google carrega no iframe; só conta depois de um envio nosso */
+  iframe.addEventListener('load', function () {
+    if (!waiting) return;
+    clearTimeout(timer);
+    busy(false);
+    markSent();
+    form.reset(); updateCount();
+    showOk();
+    try {
+      if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ event: true, path: 'caixa-enviada' });
+    } catch (e) { /* métrica é opcional */ }
+  });
+
+  again.addEventListener('click', function () {
+    ok.hidden = true; form.hidden = false; intro.hidden = false; opened = Date.now(); ta.focus();
+  });
+})();
+</script>

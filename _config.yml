@@ -8,6 +8,9 @@ markdown: kramdown
 youtube_url: https://www.youtube.com/@agenciagift
 whatsapp_url: https://chat.whatsapp.com/CSnCKKPRST3JfY695TsSGL
 caixa_perguntas_url: https://forms.gle/292cThFr1XPFQoVM7
+caixa_perguntas_form_url: https://docs.google.com/forms/u/0/d/e/1FAIpQLSdj240JoFor65K1q6m40rxLHYEI7lNKjYawQSriVDRuYK-FWg/formResponse
+caixa_perguntas_campo_pergunta: entry.1668903380
+caixa_perguntas_campo_assunto: entry.2140007107
 github_url: https://github.com/agenciagift
 collections:
   posts:
