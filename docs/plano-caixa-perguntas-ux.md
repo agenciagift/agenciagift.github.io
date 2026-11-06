@@ -34,7 +34,7 @@ Endereço de envio: `https://docs.google.com/forms/d/e/<ID do formulário>/formR
 - `_includes/caixa-perguntas-form.html`: formulário, iframe, mensagem de confirmação e o script (poucas linhas, sem biblioteca), ao estilo do `post-acoes.html`.
 - Estilos em `_sass/_forms.scss` (já existem `textarea`, `button` e `.honeypot`): etiquetas, contador, mensagem de erro e confirmação, usando o primário verde e o contorno amarelo dos botões.
 - Valores no `_config.yml`: `caixa_perguntas_form_url` (formResponse) e os dois nomes de campo, para existirem num só lugar.
-- Onde aparece (proposta): **inline no fim de cada post** e **na página Entrar**, no lugar do botão atual. Em **Conteúdos** o botão continua e leva a `entrar/#caixa`. O link do Google Form fica como reserva em todos os casos.
+- Onde aparece (proposta): **inline no fim de cada post** e **na página Entrar**, no lugar do botão atual. Em **Conteúdos** o botão continua e leva à nova página `enviar-pergunta/`, que não aparece na navegação principal e é dedicada ao acesso direto em vez do link do Google. O link do Google Form fica como reserva em todos os casos.
 
 ## Sem JavaScript (degradação)
 O formulário nasce **sem** `target` do iframe e com `target="_blank"`; o JavaScript troca para o iframe. Sem JavaScript, o envio abre a confirmação do Google em outra aba (como hoje) e nada quebra. Dentro de `<noscript>`, o link para o formulário original.
@@ -69,11 +69,14 @@ Em vez do iframe, `fetch(url, {method: 'POST', mode: 'no-cors', body: FormData})
 4. Celular (largura estreita) e navegação só por teclado.
 5. Depois de publicar: uma visita real em celular e o evento `caixa-enviada` aparecendo no GoatCounter.
 
-## Decisões do João
-1. **Onde mostrar os campos:** inline em posts e em Entrar (recomendado) ou só em uma página `/perguntar/`?
-2. **Teste real:** pode haver 1 resposta de teste na planilha (e 1 e-mail de aviso)?
-3. **Aviso de privacidade:** aceita a linha "O envio é recebido pelo Google Forms, sem nome nem e-mail"?
-4. **Iframe ou `fetch`:** manter o iframe (recomendado)?
+## Decisões do João (aprovadas em 06/11/2026)
+1. **Onde mostrar os campos:** inline no fim de cada post e na página Entrar (com edição do João: em Conteúdos o botão leva à página dedicada `enviar-pergunta/`).
+2. **Teste real:** aprovado, com 1 resposta de teste "[TESTE] ignorar" na planilha (o João apaga a linha).
+3. **Aviso de privacidade:** aprovada a linha "O envio é recebido pelo Google Forms, sem nome nem e-mail".
+4. **Iframe ou `fetch`:** iframe, como pedido.
+
+## Página `enviar-pergunta/` (nova)
+Página `enviar-pergunta.md` com o mesmo include do formulário, **fora da navegação principal** (sem `menu-title` e sem `position`, para não entrar no menu). É o endereço direto para divulgar e para o botão de Conteúdos. Título "Enviar uma pergunta", uma frase de abertura, o formulário e o link do Google Form como reserva. Incluir no `sitemap`, mas sem `noindex` (a página pode ser achada por busca).
 
 ## Esforço
 Construir: cerca de 1 sessão curta (include, estilo, script de conferência). Teste e publicação: 15 min do João para o envio real e o aceite do visual.
