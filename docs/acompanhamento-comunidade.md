@@ -39,6 +39,7 @@ Uma linha por checagem: hora, respostas da pesquisa, mensagens e reações novas
 
 ## Ações já feitas
 - 04/11 14:15: enquete 1 de inglês (nível) no grupo principal. Texto aprovado, sem o prefixo "Claude aqui: " (correto pela regra acima). 0 votos às ~14:30.
+- 06/11 15:06: mensagem única no grupo principal (autorizada pelo João), sem prefixo por ser texto aprovado: regra de acolhimento (seção 1), caixa de perguntas (seção 2) e ritmo semanal (segunda enquete, quarta "Sem medo de perguntar", sexta oportunidades da semana; sem a tabela de novembro nem menção ao sprint). **Não foi fixada.**
 - 06/11 14:08: reforço da enquete 2 no grupo principal, com o prefixo "Claude aqui: " (interação espontânea), autorizado pelo João. 06/11 10:04: enquete 2 (foco) publicada.
 - 04/11 10:39: aviso da pesquisa no grupo principal.
 - 04/11 13:08: aviso curto da pesquisa enviado no grupo de avisos (liberado pelo João no chat após bloqueio inicial do envio automático).
