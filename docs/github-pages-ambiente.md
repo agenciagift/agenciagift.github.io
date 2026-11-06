@@ -64,7 +64,7 @@ Temas embutidos do GHP (via `theme:`/`remote_theme`): Primer (padrão do gem), A
 - Includes aceitam parâmetros (`include.nome`) e variáveis (`{% include {{ include.icone }} %}`). Para mostrar `{% ... %}` literal em texto, usar `{% raw %}`.
 - Markdown dentro de bloco HTML só é processado com `markdown="1"` no elemento.
 - `defaults:` no `_config.yml` aplica front matter por caminho/tipo (usado para `layout`, `image` e `permalink`). Regra: o escopo mais específico (ou o definido depois) vence, e o front matter do próprio arquivo vence tudo.
-- `.sass` indentado funciona (usado em `css/main.sass` e `_sass/`), com a limitação do Ruby Sass.
+- O Sass está em sintaxe SCSS (chaves e ponto-e-vírgula), em `css/main.scss` e `_sass/*.scss` (convertido do `.sass` indentado em 2026-11-06 com `sass-convert`; CSS gerado equivalente). Limitação do Ruby Sass (3.7): sem `@use`, só `@import`.
 
 ## 5. O que este site usa hoje (resumo operacional)
 - **Ativos:** SEO (`image` e `description` por post), sitemap, feed Atom em `/feed.xml` (substitui o `feed.xml` manual antigo), paginação configurada (sem uso).
