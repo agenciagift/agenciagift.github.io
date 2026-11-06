@@ -61,14 +61,14 @@ a
         text-decoration: underline
 
 blockquote
+    display: flex
+    flex-direction: column
     color: $grey-color
-    border-left: 4px solid $grey-color-light
-    padding-left: $spacing-unit / 2
+    border-left: 8px solid $grey-color
+    padding-left: $spacing-unit
     font-size: 18px
-    letter-spacing: -1px
+    letter-spacing: 1px
     font-style: italic
-    > :last-child
-        margin-bottom: 0
 
 pre, code
     font-size: 15px
@@ -201,26 +201,38 @@ pre
     text-transform: uppercase
     border-radius: 999px
 
-+module(btn)
+.btn
     display: inline-block
     vertical-align: middle
     text-align: center
     text-decoration: none
     outline: none
-    padding-left: 15px
-    padding-right: 15px
-    background-color: $btn-color
+    padding: 5px 15px
     font-family: $ui-font-family
-    color: #fff
-    border-radius: 4px
-    box-shadow: 0 3px 10px 0 rgba(black, .3)
+    color: rgba(#fff, .75)
+    text-shadow: 0 -1px 1px rgba(black, .5)
+    background-image: linear-gradient(rgba(black, .5), rgba(black, 0.25))
+    background-color: $btn-color
+    box-shadow: 0 5px 5px 0 rgba(black, .5)
+    border-radius: .45em
+
     &:hover, &:focus, &:active
         text-decoration: none
-        color: #fff
-        box-shadow: 0 3px 15px 0 rgba(black, .5)
+        color: rgba(#fff, .9)
+        box-shadow: 0 10px 15px 0 rgba(black, .75)
     
-    +variant(large)
+    &--large
+        @extend .btn
         font-size: 2em
         padding-left: 30px
         padding-right: 30px
 
+    // colors
+
+    &--brand
+        @extend .btn
+        background-color: $brand-color
+
+    &--brand-light
+        @extend .btn
+        background-color: $brand-color-light
