@@ -1,6 +1,5 @@
-{%- comment -%}Fim do post: a caixa de perguntas (formulário na página) e, abaixo, compartilhar (API de compartilhamento do aparelho, com link do WhatsApp como reserva).{%- endcomment -%}
+{%- comment -%}Fim do post: compartilhar (API de compartilhamento do aparelho, com link do WhatsApp como reserva) e, abaixo, a caixa de perguntas (formulário na página).{%- endcomment -%}
 {%- capture share_msg %}{{ page.title }} {{ page.url | absolute_url }}{% endcapture -%}
-{% include caixa-perguntas-form.html %}
 <div class="post-actions">
   <div class="post-actions__share">
     <button type="button" class="btn btn--secondary" data-share hidden aria-label="Compartilhar este texto"
@@ -26,3 +25,5 @@
   });
 })();
 </script>
+
+{% include caixa-perguntas-form.html %}
