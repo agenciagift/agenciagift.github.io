@@ -8,8 +8,8 @@ A **Agência Gift** é uma comunidade de desenvolvedores que se ajudam: comparti
 
 ## O que você encontra aqui
 - **Estudo:** trilhas sobre por onde começar e o que estudar.
-- **Carreira:** currículo, LinkedIn, entrevistas e mentoria aberta.
+- **Carreira:** currículo, LinkedIn e entrevistas.
 - **Sem medo de perguntar:** respostas curtas e sem jargão para dúvidas básicas, vindas de uma caixa de perguntas anônima.
-- **Inglês para TI, IA e vagas.**
+- **Inglês para TI, IA e vagas:** assuntos que a comunidade conversa e indica entre si.
 
 Os conteúdos também ficam no [canal do YouTube]({{ site.youtube_url }}), e a conversa acontece no grupo do WhatsApp (veja **Entrar**).
