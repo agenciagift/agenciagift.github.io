@@ -1,7 +1,7 @@
-{%- comment -%}Fim do post: à esquerda a explicação e o botão da caixa de perguntas; à direita, compartilhar (API de compartilhamento do aparelho, com link do WhatsApp como reserva).{%- endcomment -%}
+{%- comment -%}Fim do post: a caixa de perguntas (formulário na página) e, abaixo, compartilhar (API de compartilhamento do aparelho, com link do WhatsApp como reserva).{%- endcomment -%}
 {%- capture share_msg %}{{ page.title }} {{ page.url | absolute_url }}{% endcapture -%}
+{% include caixa-perguntas-form.html %}
 <div class="post-actions">
-  {% include caixa-perguntas.html %}
   <div class="post-actions__share">
     <button type="button" class="btn btn--secondary" data-share hidden aria-label="Compartilhar este texto"
             data-title="{{ page.title | escape }}"

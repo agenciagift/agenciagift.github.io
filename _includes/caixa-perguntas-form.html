@@ -9,8 +9,11 @@ Os nomes dos campos e as opções precisam bater com o Forms; conferir ao editar
 {%- assign assuntos = "Estudo (por onde começar)|Carreira, currículo e entrevistas|Código e ferramentas|Inglês para tecnologia|Inteligência artificial|Outro assunto" | split: "|" -%}
 
 <section class="caixa-form" id="caixa-pergunta" aria-labelledby="caixa-titulo">
-  <p class="caixa-form__selo">Anônima · sem nome, sem e-mail</p>
-  <h2 class="caixa-form__titulo" id="caixa-titulo">Caixa de perguntas</h2>
+  <div data-grid="center justify">
+    <h2 class="caixa-form__titulo" id="caixa-titulo">Caixa de perguntas</h2>
+    <p data-cell="shrink" class="caixa-form__selo">Anônima · sem nome, sem e-mail</p>
+  </div>
+
   <p class="caixa-form__intro">Tem uma dúvida e não quer aparecer? Escreva aqui. Respondemos de 3 a 5 por semana, no grupo e no site, sem citar quem perguntou.</p>
 
   <form id="caixa-form" action="{{ site.caixa_perguntas_form_url }}" method="post" target="_blank" rel="noopener noreferrer" autocomplete="off">
@@ -49,8 +52,10 @@ Os nomes dos campos e as opções precisam bater com o Forms; conferir ao editar
       <a data-reserva href="{{ site.caixa_perguntas_url }}" target="_blank" rel="noopener" hidden>Usar o formulário original (abre em nova aba)</a>
     </p>
 
-    <button type="submit" class="btn caixa-form__enviar" id="caixa-enviar">Enviar pergunta</button>
-    <p class="caixa-form__privacidade">O envio é recebido pelo Google Forms, sem nome nem e-mail.</p>
+    <div data-grid="center justify">
+      <p class="caixa-form__privacidade">O envio é recebido pelo Google Forms, sem nome nem e-mail.</p>
+      <button type="submit" class="btn caixa-form__enviar" id="caixa-enviar">Enviar pergunta</button>
+    </div>
   </form>
 
   <div class="caixa-form__ok" id="caixa-ok" tabindex="-1" role="status" hidden>

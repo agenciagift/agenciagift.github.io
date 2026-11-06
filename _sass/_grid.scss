@@ -35,6 +35,8 @@
 
 
   @include variant(center) {
+    align-items: center;
+    align-content: center;
     justify-content: center;
   }
 

@@ -1,9 +1,9 @@
 %form-basis {
-  padding: 10px;
-  border: 1px solid $grey-color-light;
-  border-radius: 4px;
+  padding: 16px;
+  border: 1px solid $grey-color;
+  border-radius: 16px;
   font: inherit;
-  background-color: #fff;
+  background-color: $grey-color-dark;
   transition: 0.3s ease-in-out;
   outline: none;
 
@@ -96,7 +96,7 @@ input[type='password'],
 input[type='number'],
 select,
 textarea {
-  color: $grey-color-dark;
+  color: $grey-color-light;
 
   &:disabled {
     opacity: 0.6;
@@ -226,7 +226,7 @@ button {
 
   &__intro {
     margin: 0 0 $spacing-unit * 0.75;
-    font-size: $small-font-size * 1.3;
+    font-size: $small-font-size;
   }
 
   &__campo {
@@ -240,7 +240,6 @@ button {
       display: block;
       min-height: 130px;
       letter-spacing: normal;
-      font-size: 1rem;
     }
   }
 
@@ -250,7 +249,7 @@ button {
     gap: 10px;
     margin-top: 6px;
     color: #d6d6cf;
-    font-size: $small-font-size * 1.2;
+    font-size: $small-font-size;
   }
 
   &__assuntos {
@@ -262,7 +261,7 @@ button {
       margin: 0 0 8px;
       padding: 0;
       font-family: $title-font-family;
-      font-size: 0.75em;
+      font-size: $small-font-size;
       text-transform: uppercase;
 
       span {
@@ -352,7 +351,7 @@ button {
   &__privacidade {
     margin: 12px 0 0;
     color: #d6d6cf;
-    font-size: $small-font-size * 1.2;
+    font-size: $small-font-size;
   }
 
   &__ok {
