@@ -84,12 +84,31 @@ a {
 blockquote {
   display: flex;
   flex-direction: column;
-  color: $grey-color;
-  border-left: 8px solid $grey-color;
-  padding-left: $spacing-unit;
+  padding: 5px 0 5px $spacing-unit;
+  border-left: 6px solid $brand-color-light;
+  color: $text-color;
   font-size: 18px;
-  letter-spacing: 1px;
-  font-style: italic;
+  font-style: normal;
+  letter-spacing: normal;
+
+  > :first-child {
+    margin-top: 0;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: $link-color;
+    font-size: 1.15em;
+  }
+
+  // destaque (usado com class="hero"): caixa sobre o degradê da marca
+  &.hero {
+    padding: $spacing-unit;
+    border-radius: 0 6px 6px 0;
+  }
 }
 
 pre, code {
@@ -263,20 +282,13 @@ pre {
 
   .caixa-perguntas {
     flex: 1 1 280px;
+    margin: 0;
   }
 
   &__share {
     margin-left: auto;
   }
 
-  button.btn {
-    border: 0;
-    cursor: pointer;
-    font-size: inherit;
-    font-family: inherit;
-    text-transform: none;
-    letter-spacing: normal;
-  }
 
   [hidden] {
     display: none;
@@ -308,44 +320,66 @@ pre {
 
 .btn {
   display: inline-block;
+  box-sizing: border-box;
   vertical-align: middle;
+  min-height: 44px;
+  padding: 10px 22px;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  background-color: $brand-color-light;
+  color: $grey-color-dark;
+  font-family: $ui-font-family;
+  font-size: 0.9em;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: normal;
   text-align: center;
   text-decoration: none;
-  outline: none;
-  padding: 5px 15px;
-  font-family: $ui-font-family;
-  color: rgba(#fff, 0.75);
-  text-shadow: 0 -1px 1px rgba(black, 0.5);
-  background-image: linear-gradient(rgba(black, 0.5), rgba(black, 0.25));
-  background-color: $btn-color;
-  box-shadow: 0 5px 5px 0 rgba(black, 0.5);
-  border-radius: 0.45em;
+  text-transform: none;
+  cursor: pointer;
+  appearance: none;
 
-  &:hover, &:focus, &:active {
+  @extend %ui-transition;
+
+  &:hover, &:focus {
+    background-color: mix($brand-color-light, #fff, 80%);
+    border-color: mix($brand-color-light, #fff, 80%);
+    color: $grey-color-dark;
     text-decoration: none;
-    color: rgba(#fff, 0.9);
-    box-shadow: 0 10px 15px 0 rgba(black, 0.75);
+  }
+
+  &:focus-visible {
+    outline: 3px solid $link-color;
+    outline-offset: 3px;
+  }
+
+  // secundário: contorno amarelo, o mesmo tom dos links
+  &--secondary {
+    background-color: transparent;
+    border-color: $link-color;
+    color: $link-color;
+
+    &:hover, &:focus {
+      background-color: rgba($link-color, 0.14);
+      border-color: $link-color;
+      color: $link-color;
+    }
+  }
+
+  // verde-azulado da marca, para áreas escuras
+  &--brand {
+    background-color: $brand-color;
+    color: #fff;
+
+    &:hover, &:focus {
+      background-color: lighten($brand-color, 8%);
+      border-color: lighten($brand-color, 8%);
+      color: #fff;
+    }
   }
 
   &--large {
-    @extend .btn;
-
-    font-size: 2em;
-    padding-left: 30px;
-    padding-right: 30px;
-  }
-
-  // colors
-
-  &--brand {
-    @extend .btn;
-
-    background-color: $brand-color;
-  }
-
-  &--brand-light {
-    @extend .btn;
-
-    background-color: $brand-color-light;
+    font-size: 1.3em;
+    padding: 14px 32px;
   }
 }

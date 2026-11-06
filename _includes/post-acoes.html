@@ -3,11 +3,11 @@
 <div class="post-actions">
   {% include caixa-perguntas.html %}
   <div class="post-actions__share">
-    <button type="button" class="btn" data-share hidden aria-label="Compartilhar este texto"
+    <button type="button" class="btn btn--secondary" data-share hidden aria-label="Compartilhar este texto"
             data-title="{{ page.title | escape }}"
             data-text="{{ page.excerpt | strip_html | strip_newlines | truncatewords: 20 | escape }}"
             data-url="{{ page.url | absolute_url }}">Compartilhar</button>
-    <a class="btn" data-share-fallback href="https://wa.me/?text={{ share_msg | url_encode }}" target="_blank" rel="noopener" aria-label="Compartilhar no WhatsApp (abre em nova aba)">Compartilhar no WhatsApp</a>
+    <a class="btn btn--secondary" data-share-fallback href="https://wa.me/?text={{ share_msg | url_encode }}" target="_blank" rel="noopener" aria-label="Compartilhar no WhatsApp (abre em nova aba)">Compartilhar no WhatsApp</a>
   </div>
 </div>
 <script>

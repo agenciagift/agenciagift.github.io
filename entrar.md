@@ -6,7 +6,7 @@ position: 2
 
 A **Agência Gift** é uma comunidade de desenvolvedores que se ajudam: compartilhar conteúdo útil, indicar vagas, montar times de hackathon e **perguntar o básico sem medo**. Entrar é de graça e sair é quando quiser.
 
-<p><a href="{{ site.whatsapp_url }}" class="btn--brand-light" target="_blank" rel="noopener">Entrar no grupo do WhatsApp</a></p>
+<p><a href="{{ site.whatsapp_url }}" class="btn" target="_blank" rel="noopener">Entrar no grupo do WhatsApp</a></p>
 
 ## Aqui toda pergunta é bem-vinda, inclusive a básica
 Ninguém é ridicularizado por perguntar. Quem responder, responde com paciência; quem não quiser ou não souber, deixa passar. Dica: use **#basico** ou **#iniciante** na sua pergunta para ela não se perder no meio da conversa avançada. A regra que garante esse ambiente é a **#13**, logo abaixo, em destaque.
@@ -14,7 +14,7 @@ Ninguém é ridicularizado por perguntar. Quem responder, responde com paciênci
 ## Tem vergonha de perguntar? Pergunte sem aparecer
 Mande sua dúvida (sobre estudo, carreira, código, inglês ou IA) pela caixa de perguntas: não pedimos nome nem e-mail. Toda semana respondemos de 3 a 5 perguntas no grupo e no site, **sem citar quem perguntou**.
 
-<p><a href="https://forms.gle/292cThFr1XPFQoVM7" class="btn" target="_blank" rel="noopener">Perguntar sem se identificar</a></p>
+<p><a href="https://forms.gle/292cThFr1XPFQoVM7" class="btn btn--secondary" target="_blank" rel="noopener">Perguntar sem se identificar</a></p>
 
 ## O que acontece no grupo
 
@@ -46,4 +46,4 @@ As outras são de brincadeira, para rir juntos 😄
 - 💳 **#79** Ao deixar o grupo, o participante tem até 48 horas para devolver o cartão de crédito corporativo (é piada!).
 - 🚪 **#108** O participante, após deixar o grupo, só poderá retornar se quiser.
 
-<p><a href="{{ site.whatsapp_url }}" class="btn--large btn--brand-light" target="_blank" rel="noopener">Entrar no grupo do WhatsApp</a></p>
+<p><a href="{{ site.whatsapp_url }}" class="btn btn--large" target="_blank" rel="noopener">Entrar no grupo do WhatsApp</a></p>
