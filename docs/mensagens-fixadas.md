@@ -1,8 +1,13 @@
+---
+status: aprovado
+---
+
 # Mensagens fixadas e rituais do grupo (textos prontos)
 
 Textos para colar no grupo do WhatsApp e fixar. Troque os `[links]` depois de publicar os formulários. Não é publicado no site (`docs/` está em `exclude`). Estratégia e dados: `~/.claude/plans/detalhes/gift.md`.
 
 ## 1. Regra de acolhimento (fixar)
+
 🎁 **Aqui toda pergunta é bem-vinda, inclusive a básica.**
 Ninguém é ridicularizado por perguntar. Quem responder, responde com paciência; quem não quiser ou não souber, deixa passar. Dica: use **#basico** ou **#iniciante** na sua pergunta para ela não se perder no meio da conversa avançada.
 Sem tolerância com deboche, machismo, misoginia, homofobia ou qualquer discriminação (regra #13). Se você sentir que uma mensagem passou do ponto, avise um admin em particular.
