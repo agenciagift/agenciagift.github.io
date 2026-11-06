@@ -38,6 +38,6 @@ Por que sábado e não antes: a pesquisa (04/11) ainda está colhendo respostas;
 Registrar uma linha em `acompanhamento-comunidade.md`: reações e perguntas depois de cada onda, respostas da caixa de perguntas, entradas novas no grupo. Se não houver sinal depois das ondas 1 e 2, perguntar na enquete de segunda como as pessoas chegam ao site, em vez de aumentar o volume.
 
 ## Decisões do João
-1. Quer que o Claude poste a onda 1 no grupo (com OK explícito) ou prefere postar e fixar?
-2. Instalar alguma métrica de visitas no site?
-3. O post de LinkedIn: qual ângulo?
+1. **Quem posta a onda 1:** o Claude posta, com OK dado em 06/11/2026 ("faça tudo"), sáb 07/11 às 14:00 (evento no Calendar), sem fixar: o grupo já tem uma mensagem fixada e o WhatsApp limita a 3; fixar fica com o João.
+2. **Métrica de visitas:** aberta. Recomendação: GoatCounter (gratuito, sem cookies, sem banner); depende de o João criar a conta. Sem métrica, medir só por perguntas na caixa e entradas no grupo.
+3. **Post de LinkedIn:** ângulo ainda a escolher (semana 2).
