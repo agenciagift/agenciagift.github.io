@@ -14,7 +14,7 @@ Ninguém é ridicularizado por perguntar. Quem responder, responde com paciênci
 ## Tem vergonha de perguntar? Pergunte sem aparecer
 Mande sua dúvida (sobre estudo, carreira, código, inglês ou IA) pela caixa de perguntas: não pedimos nome nem e-mail. Toda semana respondemos de 3 a 5 perguntas no grupo e no site, **sem citar quem perguntou**.
 
-{% include caixa-perguntas-form.html %}
+<p><a href="https://forms.gle/292cThFr1XPFQoVM7" class="btn btn--secondary" target="_blank" rel="noopener">Perguntar sem se identificar</a></p>
 
 ## O que acontece no grupo
 
