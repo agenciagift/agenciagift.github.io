@@ -2,6 +2,7 @@
 Caixa de perguntas anônima, enviada na própria página (plano: docs/plano-caixa-perguntas-ux.md).
 Usar UMA vez por página (ids fixos). Envio: POST do formulário para o Google Forms dentro de um iframe invisível.
 Sem JavaScript o formulário continua funcionando (abre a confirmação do Google em outra aba).
+O layout compress.html junta tudo em uma linha: no <script> só comentários /* */ (nunca //) e sempre ponto e vírgula.
 Os nomes dos campos e as opções precisam bater com o Forms; conferir ao editar o formulário.
 {%- endcomment -%}
 {%- assign assuntos = "Estudo (por onde começar)|Carreira, currículo e entrevistas|Código e ferramentas|Inglês para tecnologia|Inteligência artificial|Outro assunto" | split: "|" -%}
@@ -61,98 +62,209 @@ Os nomes dos campos e as opções precisam bater com o Forms; conferir ao editar
   <noscript><p class="caixa-form__privacidade">Sem JavaScript, o envio abre a confirmação do Google em outra aba.</p></noscript>
 </section>
 <script>
-(function () {
-  var box = document.getElementById('caixa-pergunta');
-  if (!box) return;
-  var form = document.getElementById('caixa-form');
-  var iframe = box.querySelector('iframe');
-  var ta = document.getElementById('caixa-texto');
-  var hp = document.getElementById('caixa-site');
-  var count = document.getElementById('caixa-contador');
-  var err = document.getElementById('caixa-erro');
-  var errMsg = err.querySelector('[data-msg]');
-  var reserva = err.querySelector('[data-reserva]');
-  var send = document.getElementById('caixa-enviar');
-  var ok = document.getElementById('caixa-ok');
-  var intro = box.querySelector('.caixa-form__intro');
-  var again = document.getElementById('caixa-outra');
-
-  var MIN_MS = 3000;      /* tempo mínimo entre abrir a página e enviar */
-  var GAP_MS = 30000;     /* intervalo mínimo entre envios no mesmo navegador */
-  var TIMEOUT_MS = 15000; /* sem confirmação do iframe: avisa a pessoa */
-  var KEY = 'caixa-ultimo-envio';
-  var opened = Date.now(), waiting = false, timer = null;
-
-  function lastSent() {
-    try { return parseInt(localStorage.getItem(KEY), 10) || 0; } catch (e) { return 0; }
-  }
-  function markSent() {
-    try { localStorage.setItem(KEY, String(Date.now())); } catch (e) { /* sem armazenamento: segue sem o intervalo */ }
-  }
-  function updateCount() { count.textContent = ta.value.length + ' / ' + ta.maxLength; }
-  function clearError() {
-    err.hidden = true; reserva.hidden = true; errMsg.textContent = '';
-    ta.removeAttribute('aria-invalid');
-  }
-  function fail(msg, field, showReserva) {
-    errMsg.textContent = msg;
-    reserva.hidden = !showReserva;
-    err.hidden = false;
-    if (field) { field.setAttribute('aria-invalid', 'true'); field.focus(); }
-  }
-  function busy(on) {
-    waiting = on;
-    send.disabled = on;
-    form.setAttribute('aria-busy', on ? 'true' : 'false');
-    send.textContent = on ? 'Enviando…' : 'Enviar pergunta';
-  }
-  function showOk() {
-    form.hidden = true; intro.hidden = true; ok.hidden = false; ok.focus();
-  }
-
-  /* JavaScript ativo: o envio vai para o iframe invisível e a página não muda */
-  form.target = iframe.name;
-  form.noValidate = true;
-  updateCount();
-  ta.addEventListener('input', function () { updateCount(); if (!err.hidden) clearError(); });
-
-  form.addEventListener('submit', function (e) {
-    if (waiting) { e.preventDefault(); return; }
-    clearError();
-    if (hp.value) {              /* robô: finge sucesso e não envia */
-      e.preventDefault(); form.reset(); updateCount(); showOk(); return;
+  /*
+    ATENÇÃO: o layout compress.html junta todas as linhas da página em uma só.
+    Neste script use SOMENTE comentários de bloco; um comentário de linha
+    engoliria todo o código que vem depois dele.
+    Também termine cada instrução com ponto e vírgula.
+  */
+  (function () {
+    var box = document.getElementById('caixa-pergunta');
+    if (!box) {
+      return;
     }
-    var text = ta.value.trim();
-    if (!text) { e.preventDefault(); ta.value = ''; updateCount(); fail('Escreva sua pergunta antes de enviar.', ta); return; }
-    if (text.length > ta.maxLength) { e.preventDefault(); fail('A pergunta passou de ' + ta.maxLength + ' caracteres. Encurte um pouco.', ta); return; }
-    if (Date.now() - opened < MIN_MS) { e.preventDefault(); fail('Só um instante: revise sua pergunta e envie de novo.'); return; }
-    var wait = GAP_MS - (Date.now() - lastSent());
-    if (wait > 0) { e.preventDefault(); fail('Aguarde ' + Math.ceil(wait / 1000) + ' segundos para enviar outra pergunta.'); return; }
-    if (navigator.onLine === false) { e.preventDefault(); fail('Parece que você está sem internet. Seu texto foi mantido; tente de novo quando voltar a conexão.', null, true); return; }
-    ta.value = text;
-    busy(true);
-    timer = setTimeout(function () {
-      if (!waiting) return;
-      busy(false);
-      fail('Não conseguimos confirmar o envio. Seu texto foi mantido: tente de novo ou use o formulário original.', null, true);
-    }, TIMEOUT_MS);
-  });
 
-  /* a resposta do Google carrega no iframe; só conta depois de um envio nosso */
-  iframe.addEventListener('load', function () {
-    if (!waiting) return;
-    clearTimeout(timer);
-    busy(false);
-    markSent();
-    form.reset(); updateCount();
-    showOk();
-    try {
-      if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ event: true, path: 'caixa-enviada' });
-    } catch (e) { /* métrica é opcional */ }
-  });
+    /* Elementos */
+    var form = document.getElementById('caixa-form');
+    var iframe = box.querySelector('iframe');
+    var intro = box.querySelector('.caixa-form__intro');
+    var textarea = document.getElementById('caixa-texto');
+    var honeypot = document.getElementById('caixa-site');
+    var counter = document.getElementById('caixa-contador');
+    var errorBox = document.getElementById('caixa-erro');
+    var errorMsg = errorBox.querySelector('[data-msg]');
+    var fallbackLink = errorBox.querySelector('[data-reserva]');
+    var sendButton = document.getElementById('caixa-enviar');
+    var okBox = document.getElementById('caixa-ok');
+    var againButton = document.getElementById('caixa-outra');
 
-  again.addEventListener('click', function () {
-    ok.hidden = true; form.hidden = false; intro.hidden = false; opened = Date.now(); ta.focus();
-  });
-})();
+    /* Regras anti-spam */
+    var MIN_MS = 3000;      /* tempo mínimo entre abrir a página e enviar */
+    var GAP_MS = 30000;     /* intervalo mínimo entre envios no mesmo navegador */
+    var TIMEOUT_MS = 15000; /* sem confirmação do iframe: avisa a pessoa */
+    var STORAGE_KEY = 'caixa-ultimo-envio';
+
+    /* Estado */
+    var openedAt = Date.now();
+    var waiting = false;
+    var timer = null;
+
+    function lastSentAt() {
+      try {
+        return parseInt(localStorage.getItem(STORAGE_KEY), 10) || 0;
+      } catch (e) {
+        return 0;
+      }
+    }
+
+    function markSent() {
+      try {
+        localStorage.setItem(STORAGE_KEY, String(Date.now()));
+      } catch (e) {
+        /* sem armazenamento: segue sem o intervalo entre envios */
+      }
+    }
+
+    function updateCounter() {
+      counter.textContent = textarea.value.length + ' / ' + textarea.maxLength;
+    }
+
+    function clearError() {
+      errorBox.hidden = true;
+      fallbackLink.hidden = true;
+      errorMsg.textContent = '';
+      textarea.removeAttribute('aria-invalid');
+    }
+
+    /* Mostra o erro; field recebe o foco; showFallback exibe o link do formulário original */
+    function showError(message, field, showFallback) {
+      errorMsg.textContent = message;
+      fallbackLink.hidden = !showFallback;
+      errorBox.hidden = false;
+      if (field) {
+        field.setAttribute('aria-invalid', 'true');
+        field.focus();
+      }
+    }
+
+    function setBusy(isBusy) {
+      waiting = isBusy;
+      sendButton.disabled = isBusy;
+      sendButton.textContent = isBusy ? 'Enviando…' : 'Enviar pergunta';
+      form.setAttribute('aria-busy', isBusy ? 'true' : 'false');
+    }
+
+    function showConfirmation() {
+      form.hidden = true;
+      intro.hidden = true;
+      okBox.hidden = false;
+      okBox.focus();
+    }
+
+    function trackSubmission() {
+      try {
+        if (window.goatcounter && window.goatcounter.count) {
+          window.goatcounter.count({ event: true, path: 'caixa-enviada' });
+        }
+      } catch (e) {
+        /* a métrica é opcional */
+      }
+    }
+
+    /* Devolve null se pode enviar, ou { message, field, fallback } se não pode */
+    function validate(text) {
+      if (!text) {
+        return { message: 'Escreva sua pergunta antes de enviar.', field: textarea };
+      }
+      if (text.length > textarea.maxLength) {
+        return {
+          message: 'A pergunta passou de ' + textarea.maxLength + ' caracteres. Encurte um pouco.',
+          field: textarea
+        };
+      }
+      if (Date.now() - openedAt < MIN_MS) {
+        return { message: 'Só um instante: revise sua pergunta e envie de novo.' };
+      }
+      var waitMs = GAP_MS - (Date.now() - lastSentAt());
+      if (waitMs > 0) {
+        return {
+          message: 'Aguarde ' + Math.ceil(waitMs / 1000) + ' segundos para enviar outra pergunta.'
+        };
+      }
+      if (navigator.onLine === false) {
+        return {
+          message: 'Parece que você está sem internet. Seu texto foi mantido; tente de novo quando voltar a conexão.',
+          fallback: true
+        };
+      }
+      return null;
+    }
+
+    /* Com JavaScript, o envio vai para o iframe invisível e a página não muda */
+    form.target = iframe.name;
+    form.noValidate = true;
+    updateCounter();
+
+    textarea.addEventListener('input', function () {
+      updateCounter();
+      if (!errorBox.hidden) {
+        clearError();
+      }
+    });
+
+    form.addEventListener('submit', function (event) {
+      if (waiting) {
+        event.preventDefault();
+        return;
+      }
+      clearError();
+
+      /* Robô: finge sucesso e não envia */
+      if (honeypot.value) {
+        event.preventDefault();
+        form.reset();
+        updateCounter();
+        showConfirmation();
+        return;
+      }
+
+      var text = textarea.value.trim();
+      var problem = validate(text);
+      if (problem) {
+        event.preventDefault();
+        if (!text) {
+          textarea.value = '';
+          updateCounter();
+        }
+        showError(problem.message, problem.field, problem.fallback);
+        return;
+      }
+
+      textarea.value = text;
+      setBusy(true);
+      timer = setTimeout(function () {
+        if (!waiting) {
+          return;
+        }
+        setBusy(false);
+        showError(
+          'Não conseguimos confirmar o envio. Seu texto foi mantido: tente de novo ou use o formulário original.',
+          null,
+          true
+        );
+      }, TIMEOUT_MS);
+    });
+
+    /* A resposta do Google carrega no iframe; só conta depois de um envio nosso */
+    iframe.addEventListener('load', function () {
+      if (!waiting) {
+        return;
+      }
+      clearTimeout(timer);
+      setBusy(false);
+      markSent();
+      form.reset();
+      updateCounter();
+      showConfirmation();
+      trackSubmission();
+    });
+
+    againButton.addEventListener('click', function () {
+      okBox.hidden = true;
+      form.hidden = false;
+      intro.hidden = false;
+      openedAt = Date.now();
+      textarea.focus();
+    });
+  })();
 </script>
