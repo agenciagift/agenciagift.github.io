@@ -35,9 +35,11 @@ Uma linha por checagem: hora, respostas da pesquisa, mensagens e reações novas
 | 04/11 ~13:05 | 0 (sem e-mail de aviso no Gmail) | principal: nenhuma mensagem de membro nem reação visível desde 10:39; avisos: sem novidade (só saídas) | nenhum |
 | 04/11 ~13:50 | 0 (sem e-mail de aviso) | principal: 0 mensagens de membros desde 10:39, 1 reação ❤️ no aviso da pesquisa; avisos: aviso curto enviado 13:08, 1 saída depois (13:25) | nenhum |
 | 04/11 ~16:30 | não conferido | principal: 102 membros; enquete 1 de inglês com 6 votos (4 B2, 1 B1, 1 avançado, 0 iniciante); 2 reações no aviso da pesquisa | nível de inglês: maioria B2, trava na fala |
+| 06/11 ~14:08 | não conferido | principal: enquete 1 com 10 votos (5 B2, 1 B1, 2 A1/A2, 2 avançado); enquete 2 (publicada 10:04) com 8 marcações (reuniões 2, entrevista 2, e-mails 1, vocabulário 0, documentação 1, conversação 2); sem conflito nem assunto sensível; João fez lembrete da enquete 1 às 10:10 | nível: B2 segue à frente; foco: reuniões, entrevista e conversação |
 
 ## Ações já feitas
 - 04/11 14:15: enquete 1 de inglês (nível) no grupo principal. Texto aprovado, sem o prefixo "Claude aqui: " (correto pela regra acima). 0 votos às ~14:30.
+- 06/11 14:08: reforço da enquete 2 no grupo principal, com o prefixo "Claude aqui: " (interação espontânea), autorizado pelo João. 06/11 10:04: enquete 2 (foco) publicada.
 - 04/11 10:39: aviso da pesquisa no grupo principal.
 - 04/11 13:08: aviso curto da pesquisa enviado no grupo de avisos (liberado pelo João no chat após bloqueio inicial do envio automático).
 - Pendente: apresentação no grupo principal. Condição cumprida às 13:50 (3 h sem mensagem de membro), mas **não enviada**: aguardando OK explícito do João no chat.
