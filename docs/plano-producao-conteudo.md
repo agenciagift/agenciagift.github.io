@@ -54,7 +54,7 @@ Modelo de post:
 ---
 title: "O que é uma API?"
 categories: [sem-medo-de-perguntar]
-image: /media/api.jpg            # capa e og:image (jekyll-seo-tag); sem ela vale /img/bg-lg.jpg
+image: /media/api.jpg            # capa e og:image (jekyll-seo-tag); sem ela vale /media/fundo-padrao.jpg
 image_alt: "Descrição da foto"   # texto alternativo da capa (acessibilidade)
 audio:                           # opcional (episódio em áudio)
 ---

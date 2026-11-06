@@ -1,5 +1,7 @@
 ---
 title: "Sem medo de perguntar: o que é Git e por que usar?"
+image: /media/o-que-e-git-e-por-que-usar.jpg
+image_alt: "Boneco do mascote do GitHub, um gato-polvo preto, diante de um notebook"
 categories: [sem-medo-de-perguntar]
 ---
 Você já ouviu "faz um commit" ou "abre um branch" e ficou com vergonha de perguntar? É uma dúvida muito comum, e a resposta é mais simples do que parece.

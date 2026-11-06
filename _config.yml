@@ -19,7 +19,7 @@ defaults:
 - scope:
     path: ''
   values:
-    image: /img/bg-lg.jpg
+    image: /media/fundo-padrao.jpg
 - scope:
     path: ''
     type: posts
