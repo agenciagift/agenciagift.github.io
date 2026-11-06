@@ -7,6 +7,7 @@ position: 3
 
 {% assign grupos = site.posts | group_by_exp: "p", "p.categories.first" %}
 <p>Textos curtos para quem está começando. <a href="{{ '/feed.xml' | relative_url }}">Assine o feed (RSS)</a> para receber os novos.</p>
+{% include caixa-perguntas.html %}
 <ul class="chips">
   {% for g in grupos %}<li><a href="#{{ g.name }}" data-label="">{{ g.name | replace: '-', ' ' | capitalize }} ({{ g.items.size }})</a></li>
   {% endfor %}

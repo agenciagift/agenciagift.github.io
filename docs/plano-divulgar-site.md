@@ -3,7 +3,7 @@
 Tarefa `gift-divulgar-site` (`~/.claude/plans/tarefas.json`). Estratégia e canais: `~/.claude/plans/detalhes/gift.md`. Textos prontos: `mensagens-fixadas.md` (seção 5). Não é publicado no site (`docs/` está em `exclude`).
 
 ## Objetivo e medida
-Levar a comunidade atual ao site (3 posts no ar) e dar ao site o papel de **porta de entrada**: promessa, formulário, YouTube, WhatsApp. Sucesso do primeiro ciclo: visitas vindas do grupo e do YouTube e pelo menos uma pergunta chegando pela caixa anônima. Sem Analytics no site hoje: medir pelo contador de respostas da caixa de perguntas e pelas reações e comentários no grupo (decisão do João se quer instalar métrica).
+Levar a comunidade atual ao site (4 posts no ar) e dar ao site o papel de **porta de entrada**: promessa, formulário, YouTube, WhatsApp. Sucesso do primeiro ciclo: visitas vindas do grupo e do YouTube e pelo menos uma pergunta chegando pela caixa anônima. Sem Analytics no site hoje: medir pelo contador de respostas da caixa de perguntas e pelas reações e comentários no grupo (decisão do João se quer instalar métrica).
 
 ## Restrições (do plano da Gift)
 - Canais que existem: WhatsApp (principal e avisos), YouTube @agenciagift, LinkedIn do João. **Não existe Instagram da comunidade** (o `@agenciagift` da busca é de outra empresa: não divulgar). TikTok e Shorts ficam para depois do sprint (`gift-alcance-externo`).
@@ -12,7 +12,7 @@ Levar a comunidade atual ao site (3 posts no ar) e dar ao site o papel de **port
 - Tempo do João: 1 h/dia; durante o sprint (09 a 22/11) o tempo é da oferta O1. A divulgação precisa caber em 10 a 15 min por dia.
 
 ## Antes de divulgar (checklist)
-- [ ] Prévia local revisada pelo João (`bundle exec jekyll serve --livereload`, http://127.0.0.1:4000): home, 3 posts, categorias, RSS.
+- [ ] Prévia local revisada pelo João (`bundle exec jekyll serve --livereload`, http://127.0.0.1:4000): home, 4 posts, categorias, RSS.
 - [ ] Botão de entrada no WhatsApp ou formulário funcionando; link da caixa de perguntas visível.
 - [ ] Imagens dos posts e og-image (a prévia do link no WhatsApp mostra título e imagem): conferir como o link aparece ao colar.
 - [ ] Marca provisória aceita pelo João até o rebranding (`marca.md`).

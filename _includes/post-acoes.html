@@ -1,0 +1,28 @@
+{%- comment -%}Fim do post: à esquerda a explicação e o botão da caixa de perguntas; à direita, compartilhar (API de compartilhamento do aparelho, com link do WhatsApp como reserva).{%- endcomment -%}
+{%- capture share_msg %}{{ page.title }} {{ page.url | absolute_url }}{% endcapture -%}
+<div class="post-actions">
+  {% include caixa-perguntas.html %}
+  <div class="post-actions__share">
+    <button type="button" class="btn" data-share hidden aria-label="Compartilhar este texto"
+            data-title="{{ page.title | escape }}"
+            data-text="{{ page.excerpt | strip_html | strip_newlines | truncatewords: 20 | escape }}"
+            data-url="{{ page.url | absolute_url }}">Compartilhar</button>
+    <a class="btn" data-share-fallback href="https://wa.me/?text={{ share_msg | url_encode }}" target="_blank" rel="noopener" aria-label="Compartilhar no WhatsApp (abre em nova aba)">Compartilhar no WhatsApp</a>
+  </div>
+</div>
+<script>
+(function () {
+  var btn = document.querySelector('[data-share]');
+  var fallback = document.querySelector('[data-share-fallback]');
+  if (!btn || !navigator.share) return;
+  btn.hidden = false;
+  if (fallback) fallback.hidden = true;
+  btn.addEventListener('click', function () {
+    navigator.share({
+      title: btn.getAttribute('data-title'),
+      text: btn.getAttribute('data-text'),
+      url: btn.getAttribute('data-url')
+    }).catch(function () { /* cancelado pela pessoa: nada a fazer */ });
+  });
+})();
+</script>

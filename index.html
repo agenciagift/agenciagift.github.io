@@ -13,7 +13,7 @@ layout: default
       <section class="slide-content" data-grid="center">
         <div class="wrapper">
           <span class="post-meta">
-            {{ post.date | date: "%b %-d, %Y" }}
+            {{ post.date | date: "%d/%m/%Y" }}
             {% for c in post.categories %}<span data-label="">{{ c }}</span> {% endfor %}
           </span>
           <h2 class="post-title">
