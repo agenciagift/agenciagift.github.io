@@ -2,10 +2,12 @@
 Caixa de perguntas anônima, enviada na própria página (plano: docs/plano-caixa-perguntas-ux.md).
 Usar UMA vez por página (ids fixos). Envio: POST do formulário para o Google Forms dentro de um iframe invisível.
 Sem JavaScript o formulário continua funcionando (abre a confirmação do Google em outra aba).
-O layout compress.html junta tudo em uma linha: no <script> só comentários /* */ (nunca //) e sempre ponto e vírgula.
+O layout compress.html junta tudo em uma linha: no script só comentários /* */ (nunca //) e sempre ponto e vírgula.
 Os nomes dos campos e as opções precisam bater com o Forms; conferir ao editar o formulário.
 {%- endcomment -%}
+
 {%- assign assuntos = "Estudo (por onde começar)|Carreira, currículo e entrevistas|Código e ferramentas|Inglês para tecnologia|Inteligência artificial|Outro assunto" | split: "|" -%}
+
 <section class="caixa-form" id="caixa-pergunta" aria-labelledby="caixa-titulo">
   <p class="caixa-form__selo">Anônima · sem nome, sem e-mail</p>
   <h2 class="caixa-form__titulo" id="caixa-titulo">Caixa de perguntas</h2>
