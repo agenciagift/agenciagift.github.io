@@ -9,6 +9,9 @@ Os nomes dos campos e as opções precisam bater com o Forms; conferir ao editar
 {%- assign assuntos = "Estudo (por onde começar)|Carreira, currículo e entrevistas|Código e ferramentas|Inglês para tecnologia|Inteligência artificial|Outro assunto" | split: "|" -%}
 
 <section class="caixa-form" id="caixa-pergunta"{% if include.compacta %} data-compacta{% endif %} aria-labelledby="caixa-titulo">
+  {%- if include.compacta %}
+  <script>document.getElementById('caixa-pergunta').classList.add('caixa-form--compacta');</script>
+  {%- endif %}
   <div data-grid="center justify">
     <h2 class="caixa-form__titulo" id="caixa-titulo">Caixa de perguntas</h2>
     <p data-cell="shrink" class="caixa-form__selo">Anônima · sem nome, sem e-mail</p>
@@ -23,7 +26,9 @@ Os nomes dos campos e as opções precisam bater com o Forms; conferir ao editar
     <div class="caixa-form__campo">
       <label for="caixa-texto">Qual é a sua pergunta?</label>
       <textarea id="caixa-texto" name="{{ site.caixa_perguntas_campo_pergunta }}" rows="5" maxlength="1000" required
-                aria-describedby="caixa-aviso caixa-erro" placeholder="Escreva com suas palavras. Não existe pergunta boba."></textarea>
+                aria-describedby="caixa-aviso caixa-erro"
+                data-placeholder="Escreva com suas palavras. Não existe pergunta boba."
+                placeholder="{% if include.compacta %}Tem uma dúvida? Pergunte aqui, sem nome e sem e-mail{% else %}Escreva com suas palavras. Não existe pergunta boba.{% endif %}"></textarea>
       <div class="caixa-form__meta" data-extra>
         <span id="caixa-aviso">Evite escrever dados pessoais na pergunta.</span>
         <span id="caixa-contador" aria-hidden="true">0 / 1000</span>
@@ -93,12 +98,13 @@ Os nomes dos campos e as opções precisam bater com o Forms; conferir ao editar
     var fallbackLink = errorBox.querySelector('[data-reserva]');
     var sendButton = document.getElementById('caixa-enviar');
     var okBox = document.getElementById('caixa-ok');
-    var extras = box.querySelectorAll('[data-extra]');
-    var fullPlaceholder = textarea.placeholder;
+    var compact = box.hasAttribute('data-compacta');
+    var radios = box.querySelectorAll('input[type="radio"]');
+    var fullPlaceholder = textarea.getAttribute('data-placeholder');
     var againButton = document.getElementById('caixa-outra');
 
     /* Regras anti-spam */
-    var MIN_MS = 3000;      /* tempo mínimo entre abrir a página e enviar */
+    var MIN_MS = 3000;      /* tempo mínimo entre abrir a página e enviar (se faltar, espera em silêncio) */
     var GAP_MS = 30000;     /* intervalo mínimo entre envios no mesmo navegador */
     var TIMEOUT_MS = 15000; /* sem confirmação do iframe: avisa a pessoa */
     var STORAGE_KEY = 'caixa-ultimo-envio';
@@ -107,6 +113,11 @@ Os nomes dos campos e as opções precisam bater com o Forms; conferir ao editar
     var openedAt = Date.now();
     var waiting = false;
     var timer = null;
+    var queued = false;
+    var lastRadio = null;
+    var pointerDown = false;
+    var opened = false;
+    var REDUCED = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     function lastSentAt() {
       try {
@@ -125,7 +136,14 @@ Os nomes dos campos e as opções precisam bater com o Forms; conferir ao editar
     }
 
     function updateCounter() {
-      counter.textContent = textarea.value.length + ' / ' + textarea.maxLength;
+      var length = textarea.value.length;
+      counter.textContent = length >= textarea.maxLength * 0.8 ? length + ' / ' + textarea.maxLength : '';
+    }
+
+    function resetForm() {
+      form.reset();
+      lastRadio = null;
+      updateCounter();
     }
 
     function clearError() {
@@ -161,10 +179,10 @@ Os nomes dos campos e as opções precisam bater com o Forms; conferir ao editar
       okBox.focus();
     }
 
-    function trackSubmission() {
+    function track(name) {
       try {
         if (window.goatcounter && window.goatcounter.count) {
-          window.goatcounter.count({ event: true, path: 'caixa-enviada' });
+          window.goatcounter.count({ event: true, path: name });
         }
       } catch (e) {
         /* a métrica é opcional */
@@ -182,9 +200,6 @@ Os nomes dos campos e as opções precisam bater com o Forms; conferir ao editar
           field: textarea
         };
       }
-      if (Date.now() - openedAt < MIN_MS) {
-        return { message: 'Só um instante: revise sua pergunta e envie de novo.' };
-      }
       var waitMs = GAP_MS - (Date.now() - lastSentAt());
       if (waitMs > 0) {
         return {
@@ -200,19 +215,70 @@ Os nomes dos campos e as opções precisam bater com o Forms; conferir ao editar
       return null;
     }
 
-    /* Começa enxuta: só a pergunta. Ao focar na caixa de texto, mostra assunto, aviso e botão */
+    /* Caixa enxuta (posts): só a pergunta; ao focar na caixa de texto, mostra o resto */
     function setExpanded(expanded) {
+      var wasCompact = box.classList.contains('caixa-form--compacta');
       box.classList.toggle('caixa-form--compacta', !expanded);
-      textarea.placeholder = expanded ? fullPlaceholder : 'Tem uma dúvida? Pergunte aqui, sem nome e sem e-mail';
-      for (var i = 0; i < extras.length; i++) {
-        extras[i].hidden = !expanded;
+      textarea.placeholder = expanded ? fullPlaceholder : textarea.getAttribute('data-compact-placeholder');
+      if (expanded && wasCompact) {
+        /* espera a transição e garante que o botão apareça (útil no celular, com o teclado aberto) */
+        setTimeout(function () {
+          sendButton.scrollIntoView({ block: 'nearest', behavior: REDUCED ? 'auto' : 'smooth' });
+        }, 400);
       }
     }
 
-    if (box.hasAttribute('data-compacta')) {
+    function collapseIfIdle() {
+      var chosen = box.querySelector('input[type="radio"]:checked');
+      if (!compact || pointerDown || textarea.value || chosen || errorBox.hidden === false || waiting || queued) {
+        return;
+      }
+      if (box.contains(document.activeElement)) {
+        return;
+      }
       setExpanded(false);
-      textarea.addEventListener('focus', function () {
+    }
+
+    textarea.setAttribute('data-compact-placeholder', textarea.placeholder);
+    if (compact) {
+      box.addEventListener('pointerdown', function () {
+        pointerDown = true;
+      });
+      document.addEventListener('pointerup', function () {
+        pointerDown = false;
+      });
+      box.addEventListener('focusout', function () {
+        setTimeout(collapseIfIdle, 200);
+      });
+    }
+
+    textarea.addEventListener('focus', function () {
+      if (compact) {
         setExpanded(true);
+      }
+      if (!opened) {
+        opened = true;
+        track('caixa-aberta');
+      }
+    });
+
+    /* Ctrl+Enter ou Cmd+Enter envia */
+    textarea.addEventListener('keydown', function (event) {
+      if (event.key === 'Enter' && (event.ctrlKey || event.metaKey)) {
+        event.preventDefault();
+        form.requestSubmit();
+      }
+    });
+
+    /* Assunto opcional: clicar na opção já marcada desmarca */
+    for (var r = 0; r < radios.length; r++) {
+      radios[r].addEventListener('click', function (event) {
+        if (lastRadio === event.target) {
+          event.target.checked = false;
+          lastRadio = null;
+        } else {
+          lastRadio = event.target;
+        }
       });
     }
 
@@ -229,7 +295,7 @@ Os nomes dos campos e as opções precisam bater com o Forms; conferir ao editar
     });
 
     form.addEventListener('submit', function (event) {
-      if (waiting) {
+      if (waiting || queued) {
         event.preventDefault();
         return;
       }
@@ -238,8 +304,7 @@ Os nomes dos campos e as opções precisam bater com o Forms; conferir ao editar
       /* Robô: finge sucesso e não envia */
       if (honeypot.value) {
         event.preventDefault();
-        form.reset();
-        updateCounter();
+        resetForm();
         showConfirmation();
         return;
       }
@@ -253,6 +318,22 @@ Os nomes dos campos e as opções precisam bater com o Forms; conferir ao editar
           updateCounter();
         }
         showError(problem.message, problem.field, problem.fallback);
+        return;
+      }
+
+      /* Tempo mínimo ainda não passou: espera em silêncio e envia sozinho */
+      var early = MIN_MS - (Date.now() - openedAt);
+      if (early > 0) {
+        event.preventDefault();
+        queued = true;
+        sendButton.disabled = true;
+        sendButton.textContent = 'Enviando…';
+        setTimeout(function () {
+          queued = false;
+          sendButton.disabled = false;
+          sendButton.textContent = 'Enviar pergunta';
+          form.requestSubmit();
+        }, early);
         return;
       }
 
@@ -279,10 +360,9 @@ Os nomes dos campos e as opções precisam bater com o Forms; conferir ao editar
       clearTimeout(timer);
       setBusy(false);
       markSent();
-      form.reset();
-      updateCounter();
+      resetForm();
       showConfirmation();
-      trackSubmission();
+      track('caixa-enviada');
     });
 
     againButton.addEventListener('click', function () {

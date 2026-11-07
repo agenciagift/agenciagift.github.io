@@ -209,8 +209,9 @@ button {
   // enxuta: uma linha só (a caixa de texto), até a pessoa focar nela
   &--compacta {
     .caixa-form__selo,
-    .caixa-form__intro {
-      display: none;
+    .caixa-form__intro,
+    [data-extra] {
+      display: none !important; // vence o display do [data-grid]
     }
 
     // o título continua visível; só o rótulo vira exclusivo de leitores de tela
