@@ -215,8 +215,11 @@ button {
       display: none;
     }
 
-    // título e rótulo seguem para leitores de tela, sem ocupar espaço
-    .caixa-form__titulo,
+    // o título continua visível; só o rótulo vira exclusivo de leitores de tela
+    .caixa-form__titulo {
+      font-size: 1.2em;
+    }
+
     .caixa-form__campo label {
       position: absolute;
       width: 1px;
@@ -405,8 +408,43 @@ button {
   }
 }
 
+// Transição ao expandir (só na caixa compacta dos posts)
+@keyframes caixa-aparece {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.caixa-form[data-compacta] {
+  transition: padding 0.3s ease;
+
+  textarea {
+    transition: height 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  &:not(.caixa-form--compacta) {
+    textarea {
+      height: 130px;
+    }
+
+    .caixa-form__selo,
+    .caixa-form__intro,
+    [data-extra] {
+      animation: caixa-aparece 0.35s ease both;
+    }
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .caixa-form,
   .caixa-form * {
     transition: none !important;
+    animation: none !important;
   }
 }
