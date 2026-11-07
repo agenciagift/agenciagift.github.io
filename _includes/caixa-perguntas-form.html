@@ -115,7 +115,6 @@ Os nomes dos campos e as opções precisam bater com o Forms; conferir ao editar
     var timer = null;
     var queued = false;
     var lastRadio = null;
-    var pointerDown = false;
     var opened = false;
     var REDUCED = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -230,10 +229,7 @@ Os nomes dos campos e as opções precisam bater com o Forms; conferir ao editar
 
     function collapseIfIdle() {
       var chosen = box.querySelector('input[type="radio"]:checked');
-      if (!compact || pointerDown || textarea.value || chosen || errorBox.hidden === false || waiting || queued) {
-        return;
-      }
-      if (box.contains(document.activeElement)) {
+      if (!compact || textarea.value || chosen || errorBox.hidden === false || waiting || queued) {
         return;
       }
       setExpanded(false);
@@ -241,14 +237,11 @@ Os nomes dos campos e as opções precisam bater com o Forms; conferir ao editar
 
     textarea.setAttribute('data-compact-placeholder', textarea.placeholder);
     if (compact) {
-      box.addEventListener('pointerdown', function () {
-        pointerDown = true;
-      });
-      document.addEventListener('pointerup', function () {
-        pointerDown = false;
-      });
-      box.addEventListener('focusout', function () {
-        setTimeout(collapseIfIdle, 200);
+      /* Recolhe só quando a pessoa clica FORA da caixa (perder o foco dentro dela não recolhe) */
+      document.addEventListener('pointerdown', function (event) {
+        if (!box.contains(event.target)) {
+          collapseIfIdle();
+        }
       });
     }
 
