@@ -14,8 +14,8 @@ Sem tolerância com deboche, machismo, misoginia, homofobia ou qualquer discrimi
 
 ## 2. Caixa de perguntas anônima (fixar)
 🎁 **Tem vergonha de perguntar? Pergunte sem aparecer.**
-Mande sua dúvida (sobre estudo, carreira, código, inglês ou IA) neste formulário: não pedimos nome nem e-mail. Toda semana respondemos de 3 a 5 perguntas aqui no grupo e no site, **sem citar quem perguntou**.
-👉 https://forms.gle/292cThFr1XPFQoVM7
+Mande sua dúvida (sobre estudo, carreira, código, inglês ou IA) pela caixa de perguntas do site: não pedimos nome nem e-mail. Toda semana respondemos de 3 a 5 perguntas aqui no grupo e no site, **sem citar quem perguntou**.
+👉 https://agenciagift.github.io/enviar-pergunta/
 
 ## 3. Calendário (fixar e atualizar todo mês)
 > Proposta de ritmo. O João confirma dias e horários antes de fixar. Durante o sprint (09 a 22/11) o tempo dele é da oferta O1, então no começo mantemos só o essencial.
