@@ -1,6 +1,20 @@
 # Plano: caixa de perguntas dentro do site (UX)
 
+> **Status: concluído e publicado em 06/11/2026** (tarefas `gift-caixa-ux-*` encerradas). A seção "Estado final" abaixo vale sobre o texto original do plano; o resto fica como histórico das decisões.
+
 Tarefas no kanban: `gift-caixa-ux-decisoes`, `gift-caixa-ux-construir`, `gift-caixa-ux-testar` (`~/.claude/plans/tarefas.json`). Não é publicado no site (`docs/` está em `exclude`).
+
+## Estado final (06/11/2026)
+- **Onde aparece:** fim de cada post e página **Conteúdos** (versão **compacta**, `compacta=true`); página **`/enviar-pergunta/`** (versão completa, fora da navegação). A página **Entrar** mantém um botão que leva a `/enviar-pergunta/`. O include antigo `caixa-perguntas.html` (botão) foi removido.
+- **Compacta:** nasce só com título e uma caixa de texto (sem selo, introdução, assuntos nem botão); ao focar no campo, expande com transição (altura do campo e fade do resto) e rola até o botão. Só recolhe ao **clicar fora** da caixa, e apenas se estiver vazia, sem assunto e sem erro; depois do envio, clicar fora volta ao estado inicial. Sem JavaScript aparece completa.
+- **Envio:** iframe oculto com `sandbox="allow-forms"`; confirmação otimista (o site não lê a resposta do Google). Antes de 3 s na página o envio espera em silêncio e sai sozinho. Honeypot, intervalo de 30 s (`localStorage`), 1000 caracteres, sem internet e demora de 15 s tratados com o link do formulário original como reserva.
+- **Assunto:** opção única (rádio) e opcional; clicar na opção marcada desmarca. Contador só aparece a partir de 800 caracteres. Ctrl/Cmd+Enter envia.
+- **Métrica (GoatCounter):** `caixa-aberta` (primeiro foco) e `caixa-enviada` (sem texto).
+- **Configuração:** `_config.yml` guarda `caixa_perguntas_form_url`, `caixa_perguntas_campo_pergunta`, `caixa_perguntas_campo_assunto` e `caixa_perguntas_url` (reserva). As opções de assunto ficam no include.
+- **Conferência:** `python3 scripts/conferir-caixa.py` compara os códigos `entry` e as opções do Forms público com o site; rodar antes de publicar e na checagem semanal.
+- **Cuidado de código:** o layout `compress.html` junta tudo em uma linha; no `<script>` só comentários `/* */` e sempre ponto e vírgula.
+- **Divulgação:** anúncios e mensagens usam `https://agenciagift.github.io/enviar-pergunta/` (não o `forms.gle`); a mensagem fixada em `docs/mensagens-fixadas.md` já usa o link do site.
+- **Teste real:** feito em 06/11 ("[TESTE] ignorar" chegou à planilha e foi apagado). Os eventos do GoatCounter só aparecem com uso real na versão publicada.
 
 ## Objetivo
 Hoje o botão "Perguntar sem se identificar" leva a um Google Form em outra aba. Cada salto perde gente, justamente de quem tem vergonha de perguntar. Meta: **a pessoa escreve a pergunta na própria página, envia, vê uma confirmação e continua lendo**, sem sair do site e sem login. A caixa de perguntas segue anônima (nenhum nome, e-mail ou conta).
@@ -34,7 +48,7 @@ Endereço de envio: `https://docs.google.com/forms/d/e/<ID do formulário>/formR
 - `_includes/caixa-perguntas-form.html`: formulário, iframe, mensagem de confirmação e o script (poucas linhas, sem biblioteca), ao estilo do `post-acoes.html`.
 - Estilos em `_sass/_forms.scss` (já existem `textarea`, `button` e `.honeypot`): etiquetas, contador, mensagem de erro e confirmação, usando o primário verde e o contorno amarelo dos botões.
 - Valores no `_config.yml`: `caixa_perguntas_form_url` (formResponse) e os dois nomes de campo, para existirem num só lugar.
-- Onde aparece (proposta): **inline no fim de cada post** e **na página Entrar**, no lugar do botão atual. Em **Conteúdos** o botão continua e leva à nova página `enviar-pergunta/`, que não aparece na navegação principal e é dedicada ao acesso direto em vez do link do Google. O link do Google Form fica como reserva em todos os casos.
+- Onde aparece (proposta): **inline no fim de cada post** e **na página Entrar**, no lugar do botão atual. Em **Conteúdos** (depois: caixa compacta; ver "Estado final") o botão levava à nova página `enviar-pergunta/`, que não aparece na navegação principal e é dedicada ao acesso direto em vez do link do Google. O link do Google Form fica como reserva em todos os casos.
 
 ## Sem JavaScript (degradação)
 O formulário nasce **sem** `target` do iframe e com `target="_blank"`; o JavaScript troca para o iframe. Sem JavaScript, o envio abre a confirmação do Google em outra aba (como hoje) e nada quebra. Dentro de `<noscript>`, o link para o formulário original.
