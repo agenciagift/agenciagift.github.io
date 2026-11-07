@@ -1,6 +1,6 @@
 {%- comment -%}
 Caixa de perguntas anônima, enviada na própria página (plano: docs/plano-caixa-perguntas-ux.md).
-Usar UMA vez por página (ids fixos). Envio: POST do formulário para o Google Forms dentro de um iframe invisível.
+Usar UMA vez por página (ids fixos). Parâmetro compacta=true: começa só com a pergunta e expande ao focar na caixa de texto (usado no fim dos posts). Envio: POST do formulário para o Google Forms dentro de um iframe invisível.
 Sem JavaScript o formulário continua funcionando (abre a confirmação do Google em outra aba).
 O layout compress.html junta tudo em uma linha: no script só comentários /* */ (nunca //) e sempre ponto e vírgula.
 Os nomes dos campos e as opções precisam bater com o Forms; conferir ao editar o formulário.
@@ -8,8 +8,8 @@ Os nomes dos campos e as opções precisam bater com o Forms; conferir ao editar
 
 {%- assign assuntos = "Estudo (por onde começar)|Carreira, currículo e entrevistas|Código e ferramentas|Inglês para tecnologia|Inteligência artificial|Outro assunto" | split: "|" -%}
 
-<section class="caixa-form" id="caixa-pergunta" aria-labelledby="caixa-titulo">
-  <div data-grid="center justify">
+<section class="caixa-form" id="caixa-pergunta"{% if include.compacta %} data-compacta{% endif %} aria-labelledby="caixa-titulo">
+  <div data-grid="center justify" data-extra>
     <h2 class="caixa-form__titulo" id="caixa-titulo">Caixa de perguntas</h2>
     <p data-cell="shrink" class="caixa-form__selo">Anônima · sem nome, sem e-mail</p>
   </div>
@@ -24,13 +24,13 @@ Os nomes dos campos e as opções precisam bater com o Forms; conferir ao editar
       <label for="caixa-texto">Qual é a sua pergunta?</label>
       <textarea id="caixa-texto" name="{{ site.caixa_perguntas_campo_pergunta }}" rows="5" maxlength="1000" required
                 aria-describedby="caixa-aviso caixa-erro" placeholder="Escreva com suas palavras. Não existe pergunta boba."></textarea>
-      <div class="caixa-form__meta">
+      <div class="caixa-form__meta" data-extra>
         <span id="caixa-aviso">Evite escrever dados pessoais na pergunta.</span>
         <span id="caixa-contador" aria-hidden="true">0 / 1000</span>
       </div>
     </div>
 
-    <fieldset class="caixa-form__assuntos">
+    <fieldset class="caixa-form__assuntos" data-extra>
       <legend>Sobre o quê é? <span>(opcional)</span></legend>
       <div class="caixa-form__etiquetas">
         {%- for assunto in assuntos %}
@@ -93,6 +93,7 @@ Os nomes dos campos e as opções precisam bater com o Forms; conferir ao editar
     var fallbackLink = errorBox.querySelector('[data-reserva]');
     var sendButton = document.getElementById('caixa-enviar');
     var okBox = document.getElementById('caixa-ok');
+    var extras = box.querySelectorAll('[data-extra]');
     var againButton = document.getElementById('caixa-outra');
 
     /* Regras anti-spam */
@@ -135,6 +136,7 @@ Os nomes dos campos e as opções precisam bater com o Forms; conferir ao editar
 
     /* Mostra o erro; field recebe o foco; showFallback exibe o link do formulário original */
     function showError(message, field, showFallback) {
+      setExpanded(true);
       errorMsg.textContent = message;
       fallbackLink.hidden = !showFallback;
       errorBox.hidden = false;
@@ -195,6 +197,21 @@ Os nomes dos campos e as opções precisam bater com o Forms; conferir ao editar
         };
       }
       return null;
+    }
+
+    /* Começa enxuta: só a pergunta. Ao focar na caixa de texto, mostra assunto, aviso e botão */
+    function setExpanded(expanded) {
+      box.classList.toggle('caixa-form--compacta', !expanded);
+      for (var i = 0; i < extras.length; i++) {
+        extras[i].hidden = !expanded;
+      }
+    }
+
+    if (box.hasAttribute('data-compacta')) {
+      setExpanded(false);
+      textarea.addEventListener('focus', function () {
+        setExpanded(true);
+      });
     }
 
     /* Com JavaScript, o envio vai para o iframe invisível e a página não muda */
