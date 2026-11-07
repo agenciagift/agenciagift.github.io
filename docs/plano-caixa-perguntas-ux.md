@@ -13,7 +13,7 @@ Tarefas no kanban: `gift-caixa-ux-decisoes`, `gift-caixa-ux-construir`, `gift-ca
 - **Configuração:** `_config.yml` guarda `caixa_perguntas_form_url`, `caixa_perguntas_campo_pergunta`, `caixa_perguntas_campo_assunto` e `caixa_perguntas_url` (reserva). As opções de assunto ficam no include.
 - **Conferência:** `python3 scripts/conferir-caixa.py` compara os códigos `entry` e as opções do Forms público com o site; rodar antes de publicar e na checagem semanal.
 - **Cuidado de código:** o layout `compress.html` junta tudo em uma linha; no `<script>` só comentários `/* */` e sempre ponto e vírgula.
-- **Divulgação:** anúncios e mensagens usam `https://agenciagift.github.io/enviar-pergunta/` (não o `forms.gle`); a mensagem fixada em `docs/mensagens-fixadas.md` já usa o link do site.
+- **Divulgação:** anúncios e mensagens usam `https://agenciagift.github.io/enviar-pergunta/` (não o `forms.gle`); a mensagem fixada (repositório privado `agenciagift/comunidade`, `mensagens/fixadas/02-caixa-de-perguntas.md`) já usa o link do site.
 - **Teste real:** feito em 06/11 ("[TESTE] ignorar" chegou à planilha e foi apagado). Os eventos do GoatCounter só aparecem com uso real na versão publicada.
 
 ## Objetivo
