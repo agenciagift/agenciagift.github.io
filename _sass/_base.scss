@@ -262,16 +262,6 @@ pre {
   }
 }
 
-.caixa-perguntas {
-  max-width: 460px;
-  margin: 0 0 $spacing-unit;
-
-  p {
-    margin: 0 0 10px;
-    font-size: $small-font-size * 1.2;
-  }
-}
-
 .post-actions {
   display: flex;
   flex-wrap: wrap;
@@ -280,15 +270,9 @@ pre {
   gap: 15px;
   margin: 0 0 $spacing-unit;
 
-  .caixa-perguntas {
-    flex: 1 1 280px;
-    margin: 0;
-  }
-
   &__share {
     margin-left: auto;
   }
-
 
   [hidden] {
     display: none;
