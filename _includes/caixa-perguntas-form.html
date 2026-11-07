@@ -239,9 +239,19 @@ Os nomes dos campos e as opções precisam bater com o Forms; conferir ao editar
     if (compact) {
       /* Recolhe só quando a pessoa clica FORA da caixa (perder o foco dentro dela não recolhe) */
       document.addEventListener('pointerdown', function (event) {
-        if (!box.contains(event.target)) {
-          collapseIfIdle();
+        if (box.contains(event.target)) {
+          return;
         }
+        if (!okBox.hidden) {
+          /* depois do envio: clicar fora volta ao estado inicial */
+          okBox.hidden = true;
+          form.hidden = false;
+          intro.hidden = false;
+          openedAt = Date.now();
+          setExpanded(false);
+          return;
+        }
+        collapseIfIdle();
       });
     }
 
