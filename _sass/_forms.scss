@@ -203,16 +203,40 @@ button {
   }
 
   [hidden] {
-    display: none;
+    display: none !important; // vence o display do [data-grid]
   }
 
-  // enxuta: só a pergunta, até a pessoa focar na caixa de texto
-  &--compacta &__campo {
-    margin-bottom: 0;
+  // enxuta: uma linha só (a caixa de texto), até a pessoa focar nela
+  &--compacta {
+    padding: 8px 12px;
 
-    textarea {
-      min-height: 3.5em;
-      height: 3.5em;
+    .caixa-form__selo,
+    .caixa-form__intro {
+      display: none;
+    }
+
+    // título e rótulo seguem para leitores de tela, sem ocupar espaço
+    .caixa-form__titulo,
+    .caixa-form__campo label {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+    }
+
+    .caixa-form__campo {
+      margin-bottom: 0;
+
+      textarea {
+        min-height: 3.5em;
+        height: 3.5em;
+        padding: 6px 10px;
+        overflow: hidden;
+        resize: none;
+      }
     }
   }
 

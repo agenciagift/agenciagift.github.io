@@ -9,7 +9,7 @@ Os nomes dos campos e as opções precisam bater com o Forms; conferir ao editar
 {%- assign assuntos = "Estudo (por onde começar)|Carreira, currículo e entrevistas|Código e ferramentas|Inglês para tecnologia|Inteligência artificial|Outro assunto" | split: "|" -%}
 
 <section class="caixa-form" id="caixa-pergunta"{% if include.compacta %} data-compacta{% endif %} aria-labelledby="caixa-titulo">
-  <div data-grid="center justify" data-extra>
+  <div data-grid="center justify">
     <h2 class="caixa-form__titulo" id="caixa-titulo">Caixa de perguntas</h2>
     <p data-cell="shrink" class="caixa-form__selo">Anônima · sem nome, sem e-mail</p>
   </div>
@@ -52,7 +52,7 @@ Os nomes dos campos e as opções precisam bater com o Forms; conferir ao editar
       <a data-reserva href="{{ site.caixa_perguntas_url }}" target="_blank" rel="noopener" hidden>Usar o formulário original (abre em nova aba)</a>
     </p>
 
-    <div data-grid="center justify">
+    <div data-grid="center justify" data-extra>
       <p class="caixa-form__privacidade">O envio é recebido pelo Google Forms, sem nome nem e-mail.</p>
       <button type="submit" class="btn caixa-form__enviar" id="caixa-enviar">Enviar pergunta</button>
     </div>
@@ -94,6 +94,7 @@ Os nomes dos campos e as opções precisam bater com o Forms; conferir ao editar
     var sendButton = document.getElementById('caixa-enviar');
     var okBox = document.getElementById('caixa-ok');
     var extras = box.querySelectorAll('[data-extra]');
+    var fullPlaceholder = textarea.placeholder;
     var againButton = document.getElementById('caixa-outra');
 
     /* Regras anti-spam */
@@ -202,6 +203,7 @@ Os nomes dos campos e as opções precisam bater com o Forms; conferir ao editar
     /* Começa enxuta: só a pergunta. Ao focar na caixa de texto, mostra assunto, aviso e botão */
     function setExpanded(expanded) {
       box.classList.toggle('caixa-form--compacta', !expanded);
+      textarea.placeholder = expanded ? fullPlaceholder : 'Tem uma dúvida? Pergunte aqui, sem nome e sem e-mail';
       for (var i = 0; i < extras.length; i++) {
         extras[i].hidden = !expanded;
       }
