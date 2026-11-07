@@ -208,8 +208,6 @@ button {
 
   // enxuta: uma linha só (a caixa de texto), até a pessoa focar nela
   &--compacta {
-    padding: 8px 12px;
-
     .caixa-form__selo,
     .caixa-form__intro {
       display: none;
@@ -236,7 +234,6 @@ button {
       textarea {
         min-height: 3.5em;
         height: 3.5em;
-        padding: 6px 10px;
         overflow: hidden;
         resize: none;
       }
@@ -422,8 +419,6 @@ button {
 }
 
 .caixa-form[data-compacta] {
-  transition: padding 0.3s ease;
-
   textarea {
     transition: height 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   }
