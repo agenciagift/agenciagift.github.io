@@ -1,5 +1,7 @@
 ---
 title: "Sem medo de perguntar: o que é front-end, back-end e full stack?"
+image: /media/frontend-js-chart.jpg
+image_alt: "Ilustração 3D de um quadro com o escudo do JavaScript e um fluxograma, sobre fundo roxo"
 categories: [sem-medo-de-perguntar]
 ---
 Em vagas e conversas aparecem "dev front-end", "dev back-end" e "full stack". Parece código secreto, mas a ideia é simples.

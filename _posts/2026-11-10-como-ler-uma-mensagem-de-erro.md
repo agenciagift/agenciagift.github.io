@@ -1,5 +1,7 @@
 ---
 title: "Sem medo de perguntar: como ler uma mensagem de erro?"
+image: /media/error-mess.jpg
+image_alt: "Linhas de mensagens de erro em vermelho numa tela escura, todas começando com 'Failed to load resource'"
 categories: [sem-medo-de-perguntar]
 ---
 O programa quebrou, apareceu um texto vermelho enorme e dá vontade de fechar tudo. Calma: a mensagem de erro **não é uma bronca**, é uma pista de onde olhar.
